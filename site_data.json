@@ -1,0 +1,4694 @@
+{
+ "_info": "부자되쉴? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
+ "version": "0.2.3",
+ "max_level": 3,
+ "land_by_level": [
+  20,
+  24,
+  28
+ ],
+ "time": {
+  "day_ticks": 2400,
+  "clock_table": [
+   [
+    0,
+    1980,
+    360,
+    1440
+   ],
+   [
+    1980,
+    2400,
+    1440,
+    1800
+   ]
+  ],
+  "schedule": [
+   {
+    "name": "하루 시작",
+    "tick": 0,
+    "time": "오전 6:00",
+    "what": "people.plan_day — 사람 일정·VIP 정하기"
+   },
+   {
+    "name": "입주 확인 ①",
+    "tick": 165,
+    "time": "오전 7:30",
+    "what": "빈 사무실·주택·가게에 입주자가 들어올지"
+   },
+   {
+    "name": "청소 직원 출발",
+    "tick": 300,
+    "time": "오전 8:43",
+    "what": "하우스키핑 센터 직원이 방을 돌며 쓰레기 수거"
+   },
+   {
+    "name": "호텔 객실 청소 ①",
+    "tick": 522,
+    "time": "오전 10:44",
+    "what": "청소 필요 객실 → 빈 객실"
+   },
+   {
+    "name": "수거 트럭",
+    "tick": 700,
+    "time": "오후 12:21",
+    "what": "분리수거장 → 트럭 (못 오면 건물 밖 수거)"
+   },
+   {
+    "name": "호텔 객실 청소 ②",
+    "tick": 742,
+    "time": "오후 12:44",
+    "what": ""
+   },
+   {
+    "name": "입주 확인 ②",
+    "tick": 880,
+    "time": "오후 2:00",
+    "what": ""
+   },
+   {
+    "name": "호텔 체크인",
+    "tick": 1210,
+    "time": "오후 5:00",
+    "what": "깨끗한 빈 객실에 손님"
+   },
+   {
+    "name": "카트 운반 시작",
+    "tick": 1500,
+    "time": "오후 7:38",
+    "what": "센터 창고 → 분리수거장"
+   },
+   {
+    "name": "자정 (날짜 바뀜)",
+    "tick": 1980,
+    "time": "오전 12:00",
+    "what": "하루 평가·정산(실제 달력)·레벨 확인·미션·날씨"
+   },
+   {
+    "name": "거리 손님 나누기",
+    "tick": 2250,
+    "time": "오전 3:51",
+    "what": "거리 상권 손님을 가게에 나눔"
+   },
+   {
+    "name": "하루 장사 마감",
+    "tick": 2260,
+    "time": "오전 4:00",
+    "what": "카페·식당 등 하루 수입"
+   }
+  ]
+ },
+ "facilities": [
+  {
+   "key": "office",
+   "group": "room",
+   "name": "소형 오픈형 사무실",
+   "cat": "office",
+   "cat_name": "사무실",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 480,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    2,
+    3
+   ],
+   "role": "office",
+   "rent_kind": "month",
+   "rent": [
+    45,
+    33,
+    23,
+    15
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 5,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_office",
+   "users": null,
+   "none": "일하는 곳 — 효과를 받는 쪽(사무실 직원)",
+   "notes": [
+    "평일 오전 7:15~오전 10:15 출근, 점심(오후 12:00~오후 12:52, 60% 확률로 가게·카페로), 오후 4:48~오후 7:30 퇴근. 휴일(토·일)은 쉽니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "office_partition",
+   "group": "room",
+   "name": "파티션형 사무실",
+   "cat": "office",
+   "cat_name": "사무실",
+   "size": [
+    3,
+    4
+   ],
+   "cells": 12,
+   "height": 1,
+   "cost": 970,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    3,
+    5
+   ],
+   "role": "office",
+   "rent_kind": "month",
+   "rent": [
+    89,
+    66,
+    46,
+    30
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 10,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_office",
+   "users": null,
+   "none": "일하는 곳 — 효과를 받는 쪽(사무실 직원)",
+   "notes": [
+    "평일 오전 7:15~오전 10:15 출근, 점심(오후 12:00~오후 12:52, 60% 확률로 가게·카페로), 오후 4:48~오후 7:30 퇴근. 휴일(토·일)은 쉽니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "office_exec",
+   "group": "room",
+   "name": "임원실 + 직원석",
+   "cat": "office",
+   "cat_name": "사무실",
+   "size": [
+    4,
+    4
+   ],
+   "cells": 16,
+   "height": 1,
+   "cost": 1290,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    4,
+    6
+   ],
+   "role": "office",
+   "rent_kind": "month",
+   "rent": [
+    119,
+    88,
+    62,
+    40
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 13,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_office",
+   "users": null,
+   "none": "일하는 곳 — 효과를 받는 쪽(사무실 직원)",
+   "notes": [
+    "평일 오전 7:15~오전 10:15 출근, 점심(오후 12:00~오후 12:52, 60% 확률로 가게·카페로), 오후 4:48~오후 7:30 퇴근. 휴일(토·일)은 쉽니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "office_meeting",
+   "group": "room",
+   "name": "회의실 포함형",
+   "cat": "office",
+   "cat_name": "사무실",
+   "size": [
+    5,
+    4
+   ],
+   "cells": 20,
+   "height": 1,
+   "cost": 1610,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    4,
+    6
+   ],
+   "role": "office",
+   "rent_kind": "month",
+   "rent": [
+    148,
+    110,
+    77,
+    50
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 17,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_office",
+   "users": null,
+   "none": "일하는 곳 — 효과를 받는 쪽(사무실 직원)",
+   "notes": [
+    "평일 오전 7:15~오전 10:15 출근, 점심(오후 12:00~오후 12:52, 60% 확률로 가게·카페로), 오후 4:48~오후 7:30 퇴근. 휴일(토·일)은 쉽니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "office_open_l",
+   "group": "room",
+   "name": "대형 오픈형",
+   "cat": "office",
+   "cat_name": "사무실",
+   "size": [
+    6,
+    6
+   ],
+   "cells": 36,
+   "height": 1,
+   "cost": 2900,
+   "upkeep": 0.0,
+   "star": 3,
+   "unlock": "Lv.3",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    9,
+    12
+   ],
+   "role": "office",
+   "rent_kind": "month",
+   "rent": [
+    267,
+    198,
+    139,
+    89
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 30,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_office",
+   "users": null,
+   "none": "일하는 곳 — 효과를 받는 쪽(사무실 직원)",
+   "notes": [
+    "평일 오전 7:15~오전 10:15 출근, 점심(오후 12:00~오후 12:52, 60% 확률로 가게·카페로), 오후 4:48~오후 7:30 퇴근. 휴일(토·일)은 쉽니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "studio_linear",
+   "group": "room",
+   "name": "원룸(일자형)",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 450,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    1,
+    1
+   ],
+   "role": "condo",
+   "rent_kind": "month",
+   "rent": [
+    26,
+    20,
+    14,
+    9
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 2,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "studio_split",
+   "group": "room",
+   "name": "분리형 원룸",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    2,
+    4
+   ],
+   "cells": 8,
+   "height": 1,
+   "cost": 600,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    1,
+    1
+   ],
+   "role": "condo",
+   "rent_kind": "month",
+   "rent": [
+    35,
+    26,
+    18,
+    12
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 2,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "studio_15",
+   "group": "room",
+   "name": "1.5룸",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    3,
+    3
+   ],
+   "cells": 9,
+   "height": 1,
+   "cost": 670,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    1,
+    2
+   ],
+   "role": "condo",
+   "rent_kind": "month",
+   "rent": [
+    39,
+    29,
+    20,
+    13
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 2,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "condo",
+   "group": "room",
+   "name": "투룸(소)",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    3,
+    4
+   ],
+   "cells": 12,
+   "height": 1,
+   "cost": 970,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    2,
+    3
+   ],
+   "role": "condo",
+   "rent_kind": "sale",
+   "rent": [
+    1970,
+    1460,
+    1020,
+    660
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 3,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "home_2l",
+   "group": "room",
+   "name": "투룸(대)",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    4,
+    4
+   ],
+   "cells": 16,
+   "height": 1,
+   "cost": 1290,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    2,
+    3
+   ],
+   "role": "condo",
+   "rent_kind": "sale",
+   "rent": [
+    2730,
+    2020,
+    1410,
+    910
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 4,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "home_3s",
+   "group": "room",
+   "name": "쓰리룸(소)",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    5,
+    4
+   ],
+   "cells": 20,
+   "height": 1,
+   "cost": 1610,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    3,
+    4
+   ],
+   "role": "condo",
+   "rent_kind": "sale",
+   "rent": [
+    3510,
+    2600,
+    1820,
+    1170
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 5,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "home_3l",
+   "group": "room",
+   "name": "쓰리룸(대)",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    5,
+    5
+   ],
+   "cells": 25,
+   "height": 1,
+   "cost": 2010,
+   "upkeep": 0.0,
+   "star": 3,
+   "unlock": "Lv.3",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    3,
+    5
+   ],
+   "role": "condo",
+   "rent_kind": "sale",
+   "rent": [
+    4560,
+    3380,
+    2370,
+    1520
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 6,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "home_4s",
+   "group": "room",
+   "name": "포룸(소)",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    5,
+    6
+   ],
+   "cells": 30,
+   "height": 1,
+   "cost": 2420,
+   "upkeep": 0.0,
+   "star": 3,
+   "unlock": "Lv.3",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    4,
+    5
+   ],
+   "role": "condo",
+   "rent_kind": "sale",
+   "rent": [
+    5670,
+    4200,
+    2940,
+    1890
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 8,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "home_4l",
+   "group": "room",
+   "name": "포룸(대)",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    6,
+    6
+   ],
+   "cells": 36,
+   "height": 1,
+   "cost": 2900,
+   "upkeep": 0.0,
+   "star": 4,
+   "unlock": "Lv.4 (지금 판 최고 레벨은 3 — 지을 수 없음)",
+   "unlock_kind": "locked",
+   "floors": "upper",
+   "people": [
+    4,
+    6
+   ],
+   "role": "condo",
+   "rent_kind": "sale",
+   "rent": [
+    7100,
+    5260,
+    3680,
+    2370
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 9,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "shop",
+   "group": "room",
+   "name": "가게",
+   "cat": "commerce",
+   "cat_name": "상업·편의",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 1040,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "any",
+   "people": [
+    2,
+    4
+   ],
+   "role": "staff",
+   "rent_kind": "month",
+   "rent": [
+    68,
+    50,
+    35,
+    22
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": true,
+   "power": 5,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "shop_cell",
+   "users": null,
+   "none": "업종이 정해지기 전 빈 가게 칸 — 업종이 정해지면 그 업종의 효과(가게 업종 표)를 냅니다",
+   "notes": [
+    "빈 가게 칸입니다. 업종(16가지)은 들어오는 세입자가 정하고, 큰 업종은 옆의 빈 가게 칸과 직사각형으로 묶여 들어옵니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "cafe",
+   "group": "room",
+   "name": "카페",
+   "cat": "commerce",
+   "cat_name": "상업·편의",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 1040,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "any",
+   "people": [
+    2,
+    4
+   ],
+   "role": "staff",
+   "rent_kind": "daily",
+   "rent": [],
+   "daily_income": {
+    "per_guest": 1.6,
+    "daily_cost": 16
+   },
+   "entrance": true,
+   "commercial": true,
+   "power": 8,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "cafe",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 1"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.5"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.3"
+    ],
+    [
+     "노인 가구",
+     "만족 0.3"
+    ],
+    [
+     "출장 손님",
+     "만족 0.5"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.2, 지출 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "업종 4가지(로스터리 카페·빵집 카페·디저트 카페·찻집) 중 하나로 영업합니다 — 지으면 후보 3가지 중에서 고를 수 있습니다(식당·카페·쇼핑몰 업종 절).",
+    "직접 운영: 로비에서 길만 이어지면 바로 영업합니다. 하루 수입 = 손님 수 × 1.6 − 운영비 16 (손님 10명부터 이익)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "hotel_single",
+   "group": "room",
+   "name": "1인 객실",
+   "cat": "hotel",
+   "cat_name": "호텔",
+   "size": [
+    1,
+    2
+   ],
+   "cells": 2,
+   "height": 1,
+   "cost": 280,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    1,
+    1
+   ],
+   "role": "hotel",
+   "rent_kind": "night",
+   "rent": [
+    27,
+    20,
+    14,
+    9
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 1,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_hotel",
+   "users": null,
+   "none": "묵는 곳 — 효과를 받는 쪽(출장·관광 손님)",
+   "notes": [
+    "손님은 매일 오후 5:00에 깨끗한 빈 객실에 들고, 다음 날 오전 7:07~오전 10:15에 나가며 숙박비를 냅니다. 나간 객실은 「청소 필요」가 되고 하우스키핑 센터가 청소해야 다시 손님을 받습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "hotel_twin",
+   "group": "room",
+   "name": "2인 객실",
+   "cat": "hotel",
+   "cat_name": "호텔",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 460,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    2,
+    2
+   ],
+   "role": "hotel",
+   "rent_kind": "night",
+   "rent": [
+    51,
+    38,
+    27,
+    17
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 2,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_hotel",
+   "users": null,
+   "none": "묵는 곳 — 효과를 받는 쪽(출장·관광 손님)",
+   "notes": [
+    "손님은 매일 오후 5:00에 깨끗한 빈 객실에 들고, 다음 날 오전 7:07~오전 10:15에 나가며 숙박비를 냅니다. 나간 객실은 「청소 필요」가 되고 하우스키핑 센터가 청소해야 다시 손님을 받습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "hotel_suite",
+   "group": "room",
+   "name": "프리미엄 객실",
+   "cat": "hotel",
+   "cat_name": "호텔",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 1040,
+   "upkeep": 0.0,
+   "star": 3,
+   "unlock": "Lv.3",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    2,
+    2
+   ],
+   "role": "hotel",
+   "rent_kind": "night",
+   "rent": [
+    89,
+    66,
+    46,
+    30
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 3,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_hotel",
+   "users": null,
+   "none": "묵는 곳 — 효과를 받는 쪽(출장·관광 손님)",
+   "notes": [
+    "손님은 매일 오후 5:00에 깨끗한 빈 객실에 들고, 다음 날 오전 7:07~오전 10:15에 나가며 숙박비를 냅니다. 나간 객실은 「청소 필요」가 되고 하우스키핑 센터가 청소해야 다시 손님을 받습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "restaurant",
+   "group": "room",
+   "name": "식당",
+   "cat": "commerce",
+   "cat_name": "상업·편의",
+   "size": [
+    3,
+    4
+   ],
+   "cells": 12,
+   "height": 1,
+   "cost": 2070,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "any",
+   "people": [
+    2,
+    4
+   ],
+   "role": "staff",
+   "rent_kind": "daily",
+   "rent": [],
+   "daily_income": {
+    "per_guest": 3.4,
+    "daily_cost": 30
+   },
+   "entrance": true,
+   "commercial": true,
+   "power": 10,
+   "wear": 1.2,
+   "feature": "",
+   "effects_item": "restaurant",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 1"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.5"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.5"
+    ],
+    [
+     "노인 가구",
+     "만족 0.5"
+    ],
+    [
+     "출장 손님",
+     "만족 1"
+    ],
+    [
+     "관광 손님",
+     "만족 1"
+    ],
+    [
+     "상가 손님",
+     "지출 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "업종 5가지(한식당·일식당·중식당·양식 레스토랑·분식·버거집) 중 하나로 영업합니다 — 지으면 후보 3가지 중에서 고를 수 있습니다(식당·카페·쇼핑몰 업종 절).",
+    "직접 운영: 로비에서 길만 이어지면 바로 영업합니다. 하루 수입 = 손님 수 × 3.4 − 운영비 30 (손님 9명부터 이익)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "cinema",
+   "group": "room",
+   "name": "시네마 라운지",
+   "cat": "commerce",
+   "cat_name": "상업·편의",
+   "size": [
+    4,
+    5
+   ],
+   "cells": 20,
+   "height": 2,
+   "cost": 5520,
+   "upkeep": 0.0,
+   "star": 3,
+   "unlock": "Lv.3",
+   "unlock_kind": "level",
+   "floors": "any",
+   "people": [
+    2,
+    3
+   ],
+   "role": "staff",
+   "rent_kind": "daily",
+   "rent": [],
+   "daily_income": {
+    "per_guest": 5.0,
+    "daily_cost": 90
+   },
+   "entrance": true,
+   "commercial": true,
+   "power": 10,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "cinema",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.2"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.5"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.5"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.3, 지출 0.3"
+    ],
+    [
+     "VIP",
+     "머묾 0.3"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "직접 운영: 로비에서 길만 이어지면 바로 영업합니다. 하루 수입 = 손님 수 × 5 − 운영비 90 (손님 18명부터 이익).",
+    "2개 층 높이라 위층에도 바닥이 있어야 합니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "party_hall",
+   "group": "room",
+   "name": "파티룸",
+   "cat": "commerce",
+   "cat_name": "상업·편의",
+   "size": [
+    4,
+    4
+   ],
+   "cells": 16,
+   "height": 1,
+   "cost": 1260,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    2,
+    3
+   ],
+   "role": "staff",
+   "rent_kind": "daily",
+   "rent": [],
+   "daily_income": {
+    "per_guest": 4.5,
+    "daily_cost": 40
+   },
+   "entrance": true,
+   "commercial": true,
+   "power": 6,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "party_hall",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.3"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.3"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.3"
+    ],
+    [
+     "관광 손님",
+     "만족 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "직접 운영: 로비에서 길만 이어지면 바로 영업합니다. 하루 수입 = 손님 수 × 4.5 − 운영비 40 (손님 9명부터 이익)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "parking_space",
+   "group": "room",
+   "name": "주차 칸",
+   "cat": "parking",
+   "cat_name": "주차·교통",
+   "size": [
+    1,
+    2
+   ],
+   "cells": 2,
+   "height": 1,
+   "cost": 50,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "basement",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": false,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "parking_space",
+   "users": null,
+   "none": "효과는 주차 계산으로 — 차 있는 입주자의 필요 칸·차 손님·주차비",
+   "notes": [
+    "벽 없는 흰 선 칸. 옆에 차로가 있고 그 차로가 같은 층 진입로 출구까지 이어져야 「쓸 수 있음」이 됩니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "recycling",
+   "group": "room",
+   "name": "분리수거장",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    3,
+    3
+   ],
+   "cells": 9,
+   "height": 1,
+   "cost": 4140,
+   "upkeep": 150.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "basement",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recycling",
+   "users": null,
+   "none": "효과는 쓰레기 흐름(위생)으로 — 쓰레기 보관·수거 트럭",
+   "notes": [
+    "용량 1,600. 같은 층 진입로 출구에서 차로가 이어지면 매일 오후 12:21에 트럭이 최대 2,000 가져갑니다. 가득 차면 그 층과 위아래 1개 층 방이 매일 더러움 +6.",
+    "3레벨 조건의 지원 시설로 셉니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "medical",
+   "group": "room",
+   "name": "건강관리실",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    3,
+    3
+   ],
+   "cells": 9,
+   "height": 1,
+   "cost": 4140,
+   "upkeep": 50.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "not_ground",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 8,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "medical",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.5"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.3"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.5"
+    ],
+    [
+     "노인 가구",
+     "만족 1, 입주 0.5"
+    ],
+    [
+     "출장 손님",
+     "만족 0.2"
+    ],
+    [
+     "관광 손님",
+     "만족 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "3레벨 조건의 지원 시설로 셉니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "security",
+   "group": "room",
+   "name": "방재센터",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 1380,
+   "upkeep": 60.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "not_ground",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 3,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "security",
+   "users": [
+    [
+     "사무실 직원",
+     "입주 0.3"
+    ],
+    [
+     "1·2인 가구",
+     "입주 0.2"
+    ],
+    [
+     "아이 있는 가족",
+     "입주 0.3"
+    ],
+    [
+     "노인 가구",
+     "입주 0.3"
+    ],
+    [
+     "관광 손님",
+     "입주 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "3레벨 조건의 지원 시설로 셉니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "housekeeping",
+   "group": "room",
+   "name": "하우스키핑 센터",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 690,
+   "upkeep": 30.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "not_ground",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 2,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "housekeeping",
+   "users": null,
+   "none": "효과는 쓰레기 흐름(위생)으로 — 범위 안 방 청소·센터 창고·카트 운반",
+   "notes": [
+    "매일 오전 8:43에 직원 5명이 나와 위아래 범위(이지 3·노멀 2·하드 1층) 안의 더러운 방부터 한 사람당 4곳(하루 최대 20곳)을 한 번에 20씩 치웁니다. 모은 쓰레기는 센터 창고(600)에, 오후 7:38부터 카트로 분리수거장에 옮깁니다.",
+    "호텔 객실 청소도 맡습니다: 오전 10:44 · 오후 12:44 두 번, 그때마다 센터 하나당 객실 5곳까지.",
+    "3레벨 조건의 지원 시설로 셉니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "metro",
+   "group": "room",
+   "name": "환승 통로",
+   "cat": "parking",
+   "cat_name": "주차·교통",
+   "size": [
+    4,
+    6
+   ],
+   "cells": 24,
+   "height": 1,
+   "cost": 9200,
+   "upkeep": 300.0,
+   "star": 4,
+   "unlock": "Lv.4 (지금 판 최고 레벨은 3 — 지을 수 없음)",
+   "unlock_kind": "locked",
+   "floors": "basement",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "metro",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.5, 입주 0.5"
+    ],
+    [
+     "1·2인 가구",
+     "입주 0.3"
+    ],
+    [
+     "출장 손님",
+     "만족 0.5"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "지출 0.5"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "건물에 1개까지."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "cathedral",
+   "group": "room",
+   "name": "전망대",
+   "cat": "rooftop",
+   "cat_name": "옥상·전망",
+   "size": [
+    4,
+    4
+   ],
+   "cells": 16,
+   "height": 1,
+   "cost": 27600,
+   "upkeep": 0.0,
+   "star": 5,
+   "unlock": "Lv.5 (지금 판 최고 레벨은 3 — 지을 수 없음)",
+   "unlock_kind": "locked",
+   "floors": "top",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "cathedral",
+   "users": [
+    [
+     "아이 있는 가족",
+     "만족 0.3"
+    ],
+    [
+     "관광 손님",
+     "만족 1, 입주 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.3"
+    ],
+    [
+     "VIP",
+     "머묾 0.5"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "건물에 1개까지.",
+    "이 시설 위에는 바닥을 깔 수 없습니다(더 높이 올리려면 먼저 철거)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "parcel_room",
+   "group": "room",
+   "name": "택배 보관함",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    1,
+    2
+   ],
+   "cells": 2,
+   "height": 1,
+   "cost": 340,
+   "upkeep": 6.75,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "any",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 1,
+   "wear": 0.8,
+   "feature": "delivery",
+   "effects_item": "parcel_room",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.3"
+    ],
+    [
+     "1·2인 가구",
+     "만족 1"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.5"
+    ],
+    [
+     "노인 가구",
+     "만족 0.5"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "칸당 하루 택배 2개를 맡습니다. 보관함으로 택배를 받은 사무실·주택은 그날 스트레스 −10. 가득 차면 기사가 직접 올라갑니다.",
+    "3레벨 조건의 지원 시설로 셉니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "maintenance_office",
+   "group": "room",
+   "name": "관리사무소",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 920,
+   "upkeep": 33.25,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "not_ground",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 2,
+   "wear": 0.8,
+   "feature": "aging",
+   "effects_item": "maintenance_office",
+   "users": [
+    [
+     "사무실 직원",
+     "입주 0.2"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.3, 입주 0.3"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.3, 입주 0.3"
+    ],
+    [
+     "노인 가구",
+     "만족 0.5, 입주 0.3"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "위아래 15개 층 안에서 노후도 50% 이상(또는 고장)인 곳을 하루 6곳까지 고칩니다(1곳 −35, 수리비 20). 더러움과는 관계없습니다.",
+    "3레벨 조건의 지원 시설로 셉니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "rooftop_garden",
+   "group": "room",
+   "name": "옥상 정원",
+   "cat": "rooftop",
+   "cat_name": "옥상·전망",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 340,
+   "upkeep": 3.25,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "top",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "rooftop",
+   "effects_item": "rooftop_garden",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.3"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.5"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.5"
+    ],
+    [
+     "노인 가구",
+     "만족 1"
+    ],
+    [
+     "관광 손님",
+     "만족 0.3"
+    ],
+    [
+     "VIP",
+     "머묾 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "아래 3개 층 안의 사무실·주택 평가 스트레스 −12.",
+    "이 시설 위에는 바닥을 깔 수 없습니다(더 높이 올리려면 먼저 철거)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "rooftop_cafe",
+   "group": "room",
+   "name": "옥상 카페",
+   "cat": "rooftop",
+   "cat_name": "옥상·전망",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 1380,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "top",
+   "people": [
+    2,
+    3
+   ],
+   "role": "staff",
+   "rent_kind": "daily",
+   "rent": [],
+   "daily_income": {
+    "per_guest": 1.8,
+    "daily_cost": 18
+   },
+   "entrance": true,
+   "commercial": true,
+   "power": 6,
+   "wear": 0.8,
+   "feature": "rooftop",
+   "effects_item": "rooftop_cafe",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.5"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.5"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.3"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "업종 4가지(로스터리 카페·빵집 카페·디저트 카페·찻집) 중 하나로 영업합니다 — 지으면 후보 3가지 중에서 고를 수 있습니다(식당·카페·쇼핑몰 업종 절).",
+    "직접 운영: 로비에서 길만 이어지면 바로 영업합니다. 하루 수입 = 손님 수 × 1.8 − 운영비 18 (손님 10명부터 이익).",
+    "이 시설 위에는 바닥을 깔 수 없습니다(더 높이 올리려면 먼저 철거)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "solar_panel",
+   "group": "room",
+   "name": "태양광 패널",
+   "cat": "rooftop",
+   "cat_name": "옥상·전망",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 690,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "top",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": false,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "rooftop",
+   "effects_item": "solar_panel",
+   "users": null,
+   "none": "태양광 패널 — 전력 공급을 늘리는 시설(편의 효과 없음)",
+   "notes": [
+    "전력 공급 칸당 +3 (이 크기면 +12).",
+    "이 시설 위에는 바닥을 깔 수 없습니다(더 높이 올리려면 먼저 철거)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "electrical_room",
+   "group": "room",
+   "name": "변전실",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 1720,
+   "upkeep": 16.75,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "basement",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "power",
+   "effects_item": "electrical_room",
+   "users": null,
+   "none": "변전실 — 전력 공급을 늘리는 시설(편의 효과 없음)",
+   "notes": [
+    "전력 공급 +150 (도시 전력망 기본 200에 더함)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "shopping_mall",
+   "group": "room",
+   "name": "쇼핑몰",
+   "cat": "commerce",
+   "cat_name": "상업·편의",
+   "size": [
+    4,
+    4
+   ],
+   "cells": 16,
+   "height": 1,
+   "cost": 3450,
+   "upkeep": 33.25,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "any",
+   "people": [
+    3,
+    4
+   ],
+   "role": "staff",
+   "rent_kind": "daily",
+   "rent": [],
+   "daily_income": {
+    "per_guest": 0.45,
+    "daily_cost": 25
+   },
+   "entrance": true,
+   "commercial": true,
+   "power": 15,
+   "wear": 0.8,
+   "feature": "street",
+   "effects_item": "shopping_mall",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.5"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.5, 입주 0.3"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 1, 입주 0.3"
+    ],
+    [
+     "노인 가구",
+     "만족 0.3"
+    ],
+    [
+     "관광 손님",
+     "만족 1"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.3, 지출 0.5"
+    ],
+    [
+     "VIP",
+     "지출 0.3"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "업종 4가지(의류관·잡화관·전자제품관·생활용품관) 중 하나로 영업합니다 — 지으면 후보 3가지 중에서 고를 수 있습니다(식당·카페·쇼핑몰 업종 절).",
+    "직접 운영: 로비에서 길만 이어지면 바로 영업합니다. 하루 수입 = 손님 수 × 0.45 − 운영비 25 (손님 56명부터 이익).",
+    "층이 높아도 거리 손님이 줄지 않고, 위아래 3개 층 안의 가게·식당은 거리 손님 ×1.5."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "sky_lounge",
+   "group": "room",
+   "name": "스카이 라운지",
+   "cat": "rooftop",
+   "cat_name": "옥상·전망",
+   "size": [
+    3,
+    4
+   ],
+   "cells": 12,
+   "height": 1,
+   "cost": 2880,
+   "upkeep": 16.75,
+   "star": 3,
+   "unlock": "Lv.3",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    2,
+    3
+   ],
+   "role": "staff",
+   "rent_kind": "daily",
+   "rent": [],
+   "daily_income": {
+    "per_guest": 3.6,
+    "daily_cost": 30
+   },
+   "entrance": true,
+   "commercial": true,
+   "power": 8,
+   "wear": 0.8,
+   "feature": "street",
+   "effects_item": "sky_lounge",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.5"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.3"
+    ],
+    [
+     "출장 손님",
+     "만족 0.5"
+    ],
+    [
+     "관광 손님",
+     "만족 1"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.3"
+    ],
+    [
+     "VIP",
+     "머묾 0.5, 지출 0.5"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "직접 운영: 로비에서 길만 이어지면 바로 영업합니다. 하루 수입 = 손님 수 × 3.6 − 운영비 30 (손님 9명부터 이익).",
+    "10층 이상에만 놓을 수 있습니다.",
+    "전망 덕분에 높은 층이어도 거리 손님이 줄지 않습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "decor_planter",
+   "group": "room",
+   "name": "화분 정원",
+   "cat": "decor",
+   "cat_name": "장식",
+   "size": [
+    1,
+    1
+   ],
+   "cells": 1,
+   "height": 1,
+   "cost": 120,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "미션 「첫 도약」(Lv.2 달성)",
+   "unlock_kind": "mission",
+   "floors": "any",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "decor_planter",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.2"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.2"
+    ],
+    [
+     "노인 가구",
+     "만족 0.3"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.1"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "반경 2.5칸 안을 걸을 때 걷기 스트레스 ×0.8, 한 이동에 한 번 스트레스 −2. 편의 효과는 같은 층만 닿습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "decor_bench",
+   "group": "room",
+   "name": "쉼터 벤치",
+   "cat": "decor",
+   "cat_name": "장식",
+   "size": [
+    1,
+    2
+   ],
+   "cells": 2,
+   "height": 1,
+   "cost": 200,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "미션 「북적이는 상가」(업종 4종이 동시에 영업)",
+   "unlock_kind": "mission",
+   "floors": "any",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "decor_bench",
+   "users": [
+    [
+     "아이 있는 가족",
+     "만족 0.3"
+    ],
+    [
+     "노인 가구",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "반경 3칸 안을 걸을 때 걷기 스트레스 ×0.75, 한 이동에 한 번 스트레스 −3. 편의 효과는 같은 층만 닿습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "decor_statue",
+   "group": "room",
+   "name": "조각상",
+   "cat": "decor",
+   "cat_name": "장식",
+   "size": [
+    1,
+    1
+   ],
+   "cells": 1,
+   "height": 1,
+   "cost": 400,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "미션 「없는 게 없는 건물」(상가 분류 3가지 이상이 동시에 영업)",
+   "unlock_kind": "mission",
+   "floors": "any",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "decor_statue",
+   "users": [
+    [
+     "관광 손님",
+     "만족 0.3"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.2"
+    ],
+    [
+     "VIP",
+     "머묾 0.2"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "반경 3.5칸 안을 걸을 때 걷기 스트레스 ×0.8, 한 이동에 한 번 스트레스 −4. 편의 효과는 같은 층만 닿습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "decor_fountain",
+   "group": "room",
+   "name": "실내 분수",
+   "cat": "decor",
+   "cat_name": "장식",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 900,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "미션 「귀한 손님」(VIP 손님 3번 방문)",
+   "unlock_kind": "mission",
+   "floors": "any",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "decor_fountain",
+   "users": [
+    [
+     "아이 있는 가족",
+     "만족 0.5"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.3, 지출 0.2"
+    ],
+    [
+     "VIP",
+     "머묾 0.3"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "반경 4.5칸 안을 걸을 때 걷기 스트레스 ×0.6, 한 이동에 한 번 스트레스 −6. 편의 효과는 같은 층만 닿습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "decor_aquarium",
+   "group": "room",
+   "name": "수족관",
+   "cat": "decor",
+   "cat_name": "장식",
+   "size": [
+    1,
+    2
+   ],
+   "cells": 2,
+   "height": 1,
+   "cost": 700,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "미션 「큰 가게 유치」(3칸 이상 묶음 가게 입주)",
+   "unlock_kind": "mission",
+   "floors": "any",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "decor_aquarium",
+   "users": [
+    [
+     "아이 있는 가족",
+     "만족 1"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.3"
+    ],
+    [
+     "VIP",
+     "머묾 0.3"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "반경 4칸 안을 걸을 때 걷기 스트레스 ×0.7, 한 이동에 한 번 스트레스 −5. 편의 효과는 같은 층만 닿습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "decor_piano",
+   "group": "room",
+   "name": "그랜드 피아노",
+   "cat": "decor",
+   "cat_name": "장식",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 1100,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "미션 「300명의 건물」(인구 300명)",
+   "unlock_kind": "mission",
+   "floors": "any",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "decor_piano",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.3"
+    ],
+    [
+     "1·2인 가구",
+     "만족 0.3"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.3, 지출 0.2"
+    ],
+    [
+     "VIP",
+     "머묾 0.5, 지출 0.3"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "반경 5칸 안을 걸을 때 걷기 스트레스 ×0.7, 한 이동에 한 번 스트레스 −6. 편의 효과는 같은 층만 닿습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "decor_art",
+   "group": "room",
+   "name": "미디어 아트 기둥",
+   "cat": "decor",
+   "cat_name": "장식",
+   "size": [
+    1,
+    1
+   ],
+   "cells": 1,
+   "height": 1,
+   "cost": 800,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "미션 「새 단장」(리모델링 3번)",
+   "unlock_kind": "mission",
+   "floors": "any",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "decor_art",
+   "users": [
+    [
+     "1·2인 가구",
+     "만족 0.3"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "상가 손님",
+     "머묾 0.3, 지출 0.2"
+    ],
+    [
+     "VIP",
+     "머묾 0.3"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "반경 4칸 안을 걸을 때 걷기 스트레스 ×0.75, 한 이동에 한 번 스트레스 −5. 편의 효과는 같은 층만 닿습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "decor_pavilion",
+   "group": "room",
+   "name": "옥상 정자",
+   "cat": "decor",
+   "cat_name": "장식",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 1000,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "미션 「단골 숙소」(호텔 체크인 20번)",
+   "unlock_kind": "mission",
+   "floors": "top",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "decor_pavilion",
+   "users": [
+    [
+     "사무실 직원",
+     "만족 0.3"
+    ],
+    [
+     "아이 있는 가족",
+     "만족 0.3"
+    ],
+    [
+     "노인 가구",
+     "만족 0.5"
+    ],
+    [
+     "관광 손님",
+     "만족 0.5"
+    ],
+    [
+     "VIP",
+     "머묾 0.3"
+    ]
+   ],
+   "none": "",
+   "notes": [
+    "이 시설 위에는 바닥을 깔 수 없습니다(더 높이 올리려면 먼저 철거).",
+    "반경 5칸 안을 걸을 때 걷기 스트레스 ×0.6, 한 이동에 한 번 스트레스 −7. 편의 효과는 같은 층만 닿습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "stairs",
+   "group": "transport",
+   "name": "계단",
+   "cat": "transport",
+   "cat_name": "이동 설비",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 69,
+   "per_extra": 46,
+   "max_span": 6,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "kind": "stairs",
+   "stops": "all",
+   "service": false,
+   "doors": 1,
+   "capacity": null,
+   "ticks_per_floor": 24,
+   "stress_per_floor": 8.0,
+   "power": 0,
+   "wear": 0.8,
+   "effects_item": "transport",
+   "users": null,
+   "none": "이동 수단(계단·엘리베이터·에스컬레이터) — 걷는 거리·기다림은 동선·스트레스 계산에 이미 들어감",
+   "notes": [
+    "한 층에 24틱, 오르내린 층마다 스트레스 +8.",
+    "계단을 한 번이라도 쓴 이동은 그 이동의 스트레스 전체가 ×1.5."
+   ],
+   "in_strings": true,
+   "cost_full": 253
+  },
+  {
+   "key": "elevator",
+   "group": "transport",
+   "name": "엘리베이터",
+   "cat": "transport",
+   "cat_name": "이동 설비",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 2070,
+   "per_extra": 170,
+   "max_span": 25,
+   "upkeep": 30.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "kind": "elevator",
+   "stops": "all",
+   "service": false,
+   "doors": 1,
+   "capacity": 8,
+   "ticks_per_floor": 10,
+   "stress_per_floor": null,
+   "power": 3,
+   "wear": 1.2,
+   "effects_item": "transport",
+   "users": null,
+   "none": "이동 수단(계단·엘리베이터·에스컬레이터) — 걷는 거리·기다림은 동선·스트레스 계산에 이미 들어감",
+   "notes": [
+    "카 1대, 정원 8명, 한 층에 10틱(약 5분), 문 열림 8틱.",
+    "기다리는 동안 1틱마다 스트레스 +1."
+   ],
+   "in_strings": true,
+   "cost_full": 5980
+  },
+  {
+   "key": "elevator_double",
+   "group": "transport",
+   "name": "양문형 엘리베이터",
+   "cat": "transport",
+   "cat_name": "이동 설비",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 2691,
+   "per_extra": 221,
+   "max_span": 25,
+   "upkeep": 30.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "kind": "elevator",
+   "stops": "all",
+   "service": false,
+   "doors": 2,
+   "capacity": 8,
+   "ticks_per_floor": 10,
+   "stress_per_floor": null,
+   "power": 3,
+   "wear": 1.2,
+   "effects_item": "transport",
+   "users": null,
+   "none": "이동 수단(계단·엘리베이터·에스컬레이터) — 걷는 거리·기다림은 동선·스트레스 계산에 이미 들어감",
+   "notes": [
+    "카 1대, 정원 8명, 한 층에 10틱(약 5분), 문 열림 8틱.",
+    "마주 보는 두 면에 문이 있습니다.",
+    "기다리는 동안 1틱마다 스트레스 +1."
+   ],
+   "in_strings": true,
+   "cost_full": 7774
+  },
+  {
+   "key": "parking_ramp",
+   "group": "transport",
+   "name": "주차장 진입로",
+   "cat": "parking",
+   "cat_name": "주차·교통",
+   "size": [
+    3,
+    3
+   ],
+   "cells": 9,
+   "height": 1,
+   "cost": 690,
+   "per_extra": 230,
+   "max_span": 6,
+   "upkeep": 30.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "kind": "ramp",
+   "stops": "all",
+   "service": false,
+   "doors": 1,
+   "capacity": null,
+   "ticks_per_floor": null,
+   "stress_per_floor": null,
+   "power": 0,
+   "wear": 0.8,
+   "effects_item": "parking_ramp",
+   "users": null,
+   "none": "주차 칸·차로를 바깥 도로와 잇는 통로 — 효과는 주차 계산과 쓰레기 수거 트럭으로",
+   "notes": [
+    "1층 도로 쪽(북쪽) 건물 가장자리에서 지하로 내려가는 세로 통로. 사람은 타지 않습니다. 지하층마다 문 쪽으로 차가 나옵니다."
+   ],
+   "in_strings": true,
+   "cost_full": 1610
+  },
+  {
+   "key": "escalator",
+   "group": "transport",
+   "name": "에스컬레이터",
+   "cat": "transport",
+   "cat_name": "이동 설비",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 340,
+   "per_extra": 0,
+   "max_span": 2,
+   "upkeep": 15.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "kind": "stairs",
+   "stops": "all",
+   "service": false,
+   "doors": 1,
+   "capacity": null,
+   "ticks_per_floor": 12,
+   "stress_per_floor": 2.0,
+   "power": 3,
+   "wear": 0.8,
+   "effects_item": "transport",
+   "users": null,
+   "none": "이동 수단(계단·엘리베이터·에스컬레이터) — 걷는 거리·기다림은 동선·스트레스 계산에 이미 들어감",
+   "notes": [
+    "한 층에 12틱, 오르내린 층마다 스트레스 +2.",
+    "에스컬레이터는 계단으로 보지 않아 ×1.5 벌점이 없습니다."
+   ],
+   "in_strings": true,
+   "cost_full": 340
+  },
+  {
+   "key": "elevator_service",
+   "group": "transport",
+   "name": "직원용 엘리베이터",
+   "cat": "transport",
+   "cat_name": "이동 설비",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 1380,
+   "per_extra": 140,
+   "max_span": 25,
+   "upkeep": 30.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "kind": "elevator",
+   "stops": "all",
+   "service": true,
+   "doors": 1,
+   "capacity": 8,
+   "ticks_per_floor": 10,
+   "stress_per_floor": null,
+   "power": 3,
+   "wear": 1.2,
+   "effects_item": "transport",
+   "users": null,
+   "none": "이동 수단(계단·엘리베이터·에스컬레이터) — 걷는 거리·기다림은 동선·스트레스 계산에 이미 들어감",
+   "notes": [
+    "카 1대, 정원 8명, 한 층에 10틱(약 5분), 문 열림 8틱.",
+    "손님·입주자는 타지 않습니다. 가게 직원·배달 기사·청소·운반 직원은 길을 고를 때 이 엘리베이터 비용을 ×0.4로 봐서 먼저 탑니다.",
+    "기다리는 동안 1틱마다 스트레스 +1."
+   ],
+   "in_strings": true,
+   "cost_full": 4600
+  },
+  {
+   "key": "elevator_express",
+   "group": "transport",
+   "name": "급행 엘리베이터",
+   "cat": "transport",
+   "cat_name": "이동 설비",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 1,
+   "cost": 4020,
+   "per_extra": 290,
+   "max_span": 60,
+   "upkeep": 60.0,
+   "star": 3,
+   "unlock": "Lv.3",
+   "unlock_kind": "level",
+   "kind": "elevator",
+   "stops": "ends",
+   "service": false,
+   "doors": 1,
+   "capacity": 16,
+   "ticks_per_floor": 4,
+   "stress_per_floor": null,
+   "power": 3,
+   "wear": 1.2,
+   "effects_item": "transport",
+   "users": null,
+   "none": "이동 수단(계단·엘리베이터·에스컬레이터) — 걷는 거리·기다림은 동선·스트레스 계산에 이미 들어감",
+   "notes": [
+    "카 1대, 정원 16명, 한 층에 4틱(약 2분), 문 열림 8틱.",
+    "양 끝 층에만 섭니다.",
+    "기다리는 동안 1틱마다 스트레스 +1."
+   ],
+   "in_strings": true,
+   "cost_full": 20840
+  }
+ ],
+ "tools": [
+  {
+   "key": "lobby",
+   "name": "로비",
+   "cost": 46,
+   "where": "1층, 땅 안. 첫 로비는 어디나, 그다음은 기존 로비와 변이 붙게",
+   "note": "1층의 바닥이자 통로. 하루 칸당 유지비 0.05(5,000원)."
+  },
+  {
+   "key": "slab",
+   "name": "층 바닥",
+   "cost": 18,
+   "where": "2층 이상·지하. 아래층(지하는 위층) 바닥 위, 1층 로비 넓이 안",
+   "note": "아무것도 놓지 않은 칸은 모두 통로(복도)가 됩니다. 아래 빈 층은 함께 깔리고 합계 비용이 나옵니다."
+  },
+  {
+   "key": "lane",
+   "name": "차로",
+   "cost": 23,
+   "where": "지하 층 바닥 위 빈 칸",
+   "note": "차가 다니는 길. 사람도 어느 칸이나 걸어서 건널 수 있어 사람 길을 끊지 않습니다. 차는 앞 칸에 사람이 있으면 멈춥니다(최대 60틱 기다린 뒤 지나감)."
+  }
+ ],
+ "trades": {
+  "convenience": {
+   "name": "편의점",
+   "cells": 2,
+   "floor": "C4",
+   "sign": "B2",
+   "icon": "bottle",
+   "rent_mult": 1.2,
+   "staff": [
+    1,
+    2
+   ],
+   "customer_mult": 1.4,
+   "visit_stay": [
+    8,
+    25
+   ],
+   "weight": 1.2,
+   "floor_mult": {
+    "ground": 1.4,
+    "basement": 1.1,
+    "upper": 0.6
+   },
+   "near_mult": {
+    "office": 1.2,
+    "condo": 1.2
+   },
+   "category": "retail",
+   "effects": "trade_convenience"
+  },
+  "bakery": {
+   "name": "베이커리 카페",
+   "cells": 2,
+   "floor": "O4",
+   "sign": "O2",
+   "icon": "bread",
+   "rent_mult": 1.15,
+   "staff": [
+    2,
+    3
+   ],
+   "customer_mult": 1.1,
+   "visit_stay": [
+    40,
+    90
+   ],
+   "weight": 1.0,
+   "floor_mult": {
+    "ground": 1.3,
+    "basement": 0.8,
+    "upper": 0.7
+   },
+   "near_mult": {
+    "condo": 1.3
+   },
+   "category": "food",
+   "effects": "trade_bakery"
+  },
+  "snack": {
+   "name": "김밥·분식",
+   "cells": 1,
+   "floor": "Y4",
+   "sign": "R2",
+   "icon": "bowl",
+   "rent_mult": 0.95,
+   "staff": [
+    1,
+    2
+   ],
+   "customer_mult": 1.2,
+   "visit_stay": [
+    30,
+    60
+   ],
+   "weight": 1.0,
+   "floor_mult": {
+    "ground": 1.1,
+    "basement": 1.3,
+    "upper": 0.8
+   },
+   "near_mult": {
+    "office": 1.4
+   },
+   "category": "food",
+   "effects": "trade_snack"
+  },
+  "flower": {
+   "name": "플라워숍",
+   "cells": 1,
+   "floor": "G4",
+   "sign": "G2",
+   "icon": "flower",
+   "rent_mult": 0.9,
+   "staff": [
+    1,
+    1
+   ],
+   "customer_mult": 0.5,
+   "visit_stay": [
+    10,
+    30
+   ],
+   "weight": 0.7,
+   "floor_mult": {
+    "ground": 1.4,
+    "basement": 0.6,
+    "upper": 0.5
+   },
+   "near_mult": {
+    "condo": 1.2
+   },
+   "category": "retail",
+   "effects": "trade_flower"
+  },
+  "hair": {
+   "name": "헤어살롱",
+   "cells": 2,
+   "floor": "P4",
+   "sign": "P2",
+   "icon": "scissors",
+   "rent_mult": 1.1,
+   "staff": [
+    2,
+    3
+   ],
+   "customer_mult": 0.6,
+   "visit_stay": [
+    90,
+    170
+   ],
+   "weight": 0.9,
+   "floor_mult": {
+    "ground": 0.9,
+    "basement": 0.7,
+    "upper": 1.4
+   },
+   "near_mult": {
+    "condo": 1.3
+   },
+   "category": "health",
+   "effects": "trade_hair"
+  },
+  "drugstore": {
+   "name": "드럭스토어",
+   "cells": 3,
+   "floor": "C4",
+   "sign": "C2",
+   "icon": "plus",
+   "rent_mult": 1.3,
+   "staff": [
+    2,
+    4
+   ],
+   "customer_mult": 1.3,
+   "visit_stay": [
+    15,
+    40
+   ],
+   "weight": 0.9,
+   "floor_mult": {
+    "ground": 1.4,
+    "basement": 1.0,
+    "upper": 0.6
+   },
+   "near_mult": {
+    "office": 1.2
+   },
+   "category": "retail",
+   "effects": "trade_drugstore"
+  },
+  "stationery": {
+   "name": "문구·생활잡화",
+   "cells": 1,
+   "floor": "K4",
+   "sign": "Y2",
+   "icon": "pencil",
+   "rent_mult": 0.85,
+   "staff": [
+    1,
+    1
+   ],
+   "customer_mult": 0.8,
+   "visit_stay": [
+    10,
+    35
+   ],
+   "weight": 0.8,
+   "floor_mult": {
+    "ground": 1.0,
+    "basement": 1.0,
+    "upper": 0.9
+   },
+   "near_mult": {
+    "condo": 1.3
+   },
+   "category": "retail",
+   "effects": "trade_stationery"
+  },
+  "apparel": {
+   "name": "의류 편집숍",
+   "cells": 3,
+   "floor": "N4",
+   "sign": "N1",
+   "icon": "shirt",
+   "rent_mult": 1.25,
+   "staff": [
+    2,
+    3
+   ],
+   "customer_mult": 0.8,
+   "visit_stay": [
+    40,
+    100
+   ],
+   "weight": 0.8,
+   "floor_mult": {
+    "ground": 1.3,
+    "basement": 1.0,
+    "upper": 0.8
+   },
+   "near_mult": {
+    "office": 1.1
+   },
+   "category": "retail",
+   "effects": "trade_apparel"
+  },
+  "mart": {
+   "name": "동네 마트",
+   "category": "retail",
+   "cells": 4,
+   "floor": "G4",
+   "sign": "G1",
+   "icon": "cart",
+   "rent_mult": 1.25,
+   "staff": [
+    3,
+    5
+   ],
+   "customer_mult": 1.6,
+   "visit_stay": [
+    20,
+    50
+   ],
+   "weight": 0.9,
+   "floor_mult": {
+    "ground": 1.6,
+    "basement": 1.3,
+    "upper": 0.3
+   },
+   "near_mult": {
+    "condo": 1.4
+   },
+   "effects": "trade_mart"
+  },
+  "gym": {
+   "name": "헬스장",
+   "category": "fitness",
+   "cells": 4,
+   "floor": "K3",
+   "sign": "K1",
+   "icon": "dumbbell",
+   "rent_mult": 1.1,
+   "staff": [
+    2,
+    3
+   ],
+   "customer_mult": 0.9,
+   "visit_stay": [
+    120,
+    200
+   ],
+   "weight": 0.9,
+   "floor_mult": {
+    "ground": 0.5,
+    "basement": 1.1,
+    "upper": 1.5
+   },
+   "near_mult": {
+    "office": 1.3,
+    "condo": 1.2
+   },
+   "effects": "trade_gym"
+  },
+  "pilates": {
+   "name": "필라테스 스튜디오",
+   "category": "fitness",
+   "cells": 2,
+   "floor": "P4",
+   "sign": "P1",
+   "icon": "mat",
+   "rent_mult": 1.15,
+   "staff": [
+    1,
+    2
+   ],
+   "customer_mult": 0.5,
+   "visit_stay": [
+    100,
+    160
+   ],
+   "weight": 0.8,
+   "floor_mult": {
+    "ground": 0.5,
+    "basement": 0.6,
+    "upper": 1.6
+   },
+   "near_mult": {
+    "condo": 1.2
+   },
+   "effects": "trade_pilates"
+  },
+  "derma": {
+   "name": "피부과",
+   "category": "health",
+   "cells": 2,
+   "floor": "K4",
+   "sign": "C1",
+   "icon": "drop",
+   "rent_mult": 1.4,
+   "staff": [
+    2,
+    4
+   ],
+   "customer_mult": 0.6,
+   "visit_stay": [
+    60,
+    120
+   ],
+   "weight": 0.8,
+   "floor_mult": {
+    "ground": 0.6,
+    "basement": 0.4,
+    "upper": 1.6
+   },
+   "near_mult": {
+    "office": 1.2
+   },
+   "effects": "trade_derma"
+  },
+  "dental": {
+   "name": "치과",
+   "category": "health",
+   "cells": 2,
+   "floor": "C4",
+   "sign": "B1",
+   "icon": "tooth",
+   "rent_mult": 1.4,
+   "staff": [
+    3,
+    4
+   ],
+   "customer_mult": 0.6,
+   "visit_stay": [
+    60,
+    120
+   ],
+   "weight": 0.9,
+   "floor_mult": {
+    "ground": 0.6,
+    "basement": 0.4,
+    "upper": 1.6
+   },
+   "near_mult": {
+    "condo": 1.2
+   },
+   "effects": "trade_dental"
+  },
+  "clinic": {
+   "name": "가정의원",
+   "category": "health",
+   "cells": 2,
+   "floor": "K4",
+   "sign": "G2",
+   "icon": "heartbeat",
+   "rent_mult": 1.3,
+   "staff": [
+    2,
+    4
+   ],
+   "customer_mult": 0.8,
+   "visit_stay": [
+    40,
+    90
+   ],
+   "weight": 1.0,
+   "floor_mult": {
+    "ground": 0.9,
+    "basement": 0.4,
+    "upper": 1.5
+   },
+   "near_mult": {
+    "condo": 1.4
+   },
+   "effects": "trade_clinic"
+  },
+  "rehab": {
+   "name": "한방·재활 센터",
+   "category": "health",
+   "cells": 3,
+   "floor": "N4",
+   "sign": "N2",
+   "icon": "leaf",
+   "rent_mult": 1.2,
+   "staff": [
+    2,
+    3
+   ],
+   "customer_mult": 0.6,
+   "visit_stay": [
+    90,
+    150
+   ],
+   "weight": 0.7,
+   "floor_mult": {
+    "ground": 0.6,
+    "basement": 0.5,
+    "upper": 1.4
+   },
+   "near_mult": {
+    "condo": 1.2
+   },
+   "effects": "trade_rehab"
+  },
+  "kidscafe": {
+   "name": "키즈카페",
+   "category": "kids",
+   "cells": 4,
+   "floor": "Y4",
+   "sign": "O2",
+   "icon": "balloon",
+   "rent_mult": 1.0,
+   "staff": [
+    2,
+    3
+   ],
+   "customer_mult": 0.8,
+   "visit_stay": [
+    120,
+    240
+   ],
+   "weight": 0.8,
+   "floor_mult": {
+    "ground": 1.0,
+    "basement": 0.7,
+    "upper": 1.2
+   },
+   "near_mult": {
+    "condo": 1.6
+   },
+   "effects": "trade_kidscafe"
+  }
+ },
+ "venues": {
+  "_note": "식당·카페·쇼핑몰 업종(2026-10-18 사용자 요청 \"가게처럼 다양성이 필요해\", scripts/grid3d/venue_types.gd). 하루 장사 시설(rent_kind daily)에 업종 o[\"venue\"]를 줌. rooms = 방 종류 → 업종 묶음 이름(groups). 새로 지은 시설은 영업을 시작하면서 방 id로 정한 업종으로 바로 문을 열고, 정보창에 후보 candidates개가 choose_ticks 동안 나와 가게 세입자 고르기처럼 [업종: …] 버튼으로 고르면 바로 바뀜(안 고르면 지금 업종으로 확정). 옛 저장(업종 없음)은 불러올 때 방 id로 정해짐(불러올 때마다 같음, 후보 없이 바로 확정). 업종 칸: name 이름, floor 바닥색·sign 간판색(36색 이름), icon 간판 기호(proto_view TRADE_ICONS, 그림 assets/art/ui/sign_trade_<icon>.png), customer_mult 손님이 고를 때 무게, visit_stay 손님이 머무는 틱, income_mult 객단가 배율(가게 rent_mult 대신), staff 직원 수, weight 정해질 무게. 효과표(amenity)는 업종이 아니라 방 종류의 effects를 그대로 씀. 업종 목록·숫자는 작업자가 정한 값(가게 업종 표의 폭 안: 손님 배율 0.8~1.3, 객단가 배율 0.85~1.15로 좁게 — 업종마다 손님 배율 × 객단가 배율이 0.9~1.15가 되게 맞춰 지금 균형을 크게 흔들지 않음)",
+  "candidates": 3,
+  "choose_ticks": 1200,
+  "rooms": {
+   "restaurant": "restaurant",
+   "cafe": "cafe",
+   "rooftop_cafe": "cafe",
+   "shopping_mall": "mall"
+  },
+  "groups": {
+   "restaurant": {
+    "korean": {
+     "name": "한식당",
+     "floor": "N4",
+     "sign": "R2",
+     "icon": "rice",
+     "customer_mult": 1.0,
+     "visit_stay": [
+      70,
+      150
+     ],
+     "income_mult": 1.0,
+     "staff": [
+      2,
+      4
+     ],
+     "weight": 1.2
+    },
+    "japanese": {
+     "name": "일식당",
+     "floor": "K4",
+     "sign": "B1",
+     "icon": "sushi",
+     "customer_mult": 0.9,
+     "visit_stay": [
+      60,
+      130
+     ],
+     "income_mult": 1.1,
+     "staff": [
+      2,
+      3
+     ],
+     "weight": 0.9
+    },
+    "chinese": {
+     "name": "중식당",
+     "floor": "R4",
+     "sign": "R1",
+     "icon": "noodle",
+     "customer_mult": 1.1,
+     "visit_stay": [
+      50,
+      120
+     ],
+     "income_mult": 0.95,
+     "staff": [
+      2,
+      4
+     ],
+     "weight": 1.0
+    },
+    "western": {
+     "name": "양식 레스토랑",
+     "floor": "O4",
+     "sign": "N1",
+     "icon": "fork",
+     "customer_mult": 0.8,
+     "visit_stay": [
+      90,
+      170
+     ],
+     "income_mult": 1.15,
+     "staff": [
+      3,
+      4
+     ],
+     "weight": 0.8
+    },
+    "snackbar": {
+     "name": "분식·버거집",
+     "floor": "Y4",
+     "sign": "O2",
+     "icon": "burger",
+     "customer_mult": 1.3,
+     "visit_stay": [
+      25,
+      60
+     ],
+     "income_mult": 0.85,
+     "staff": [
+      2,
+      3
+     ],
+     "weight": 1.1
+    }
+   },
+   "cafe": {
+    "coffee": {
+     "name": "로스터리 카페",
+     "floor": "N3",
+     "sign": "N1",
+     "icon": "cup",
+     "customer_mult": 1.2,
+     "visit_stay": [
+      30,
+      80
+     ],
+     "income_mult": 0.9,
+     "staff": [
+      2,
+      3
+     ],
+     "weight": 1.3
+    },
+    "bakery_cafe": {
+     "name": "빵집 카페",
+     "floor": "O4",
+     "sign": "O2",
+     "icon": "bread",
+     "customer_mult": 1.1,
+     "visit_stay": [
+      40,
+      90
+     ],
+     "income_mult": 1.0,
+     "staff": [
+      2,
+      4
+     ],
+     "weight": 1.0
+    },
+    "dessert": {
+     "name": "디저트 카페",
+     "floor": "P4",
+     "sign": "P2",
+     "icon": "cake",
+     "customer_mult": 1.0,
+     "visit_stay": [
+      50,
+      110
+     ],
+     "income_mult": 1.05,
+     "staff": [
+      2,
+      3
+     ],
+     "weight": 0.9
+    },
+    "tea": {
+     "name": "찻집",
+     "floor": "G4",
+     "sign": "G1",
+     "icon": "teapot",
+     "customer_mult": 0.8,
+     "visit_stay": [
+      80,
+      150
+     ],
+     "income_mult": 1.15,
+     "staff": [
+      2,
+      2
+     ],
+     "weight": 0.7
+    }
+   },
+   "mall": {
+    "fashion": {
+     "name": "의류관",
+     "floor": "P4",
+     "sign": "P1",
+     "icon": "shirt",
+     "customer_mult": 1.0,
+     "visit_stay": [
+      50,
+      110
+     ],
+     "income_mult": 1.05,
+     "staff": [
+      3,
+      4
+     ],
+     "weight": 1.1
+    },
+    "goods": {
+     "name": "잡화관",
+     "floor": "Y4",
+     "sign": "Y2",
+     "icon": "bag",
+     "customer_mult": 1.1,
+     "visit_stay": [
+      30,
+      80
+     ],
+     "income_mult": 0.95,
+     "staff": [
+      3,
+      4
+     ],
+     "weight": 1.0
+    },
+    "electronics": {
+     "name": "전자제품관",
+     "floor": "K3",
+     "sign": "B1",
+     "icon": "tv",
+     "customer_mult": 0.8,
+     "visit_stay": [
+      40,
+      100
+     ],
+     "income_mult": 1.15,
+     "staff": [
+      3,
+      5
+     ],
+     "weight": 0.8
+    },
+    "living": {
+     "name": "생활용품관",
+     "floor": "G4",
+     "sign": "G1",
+     "icon": "cart",
+     "customer_mult": 1.2,
+     "visit_stay": [
+      25,
+      70
+     ],
+     "income_mult": 0.9,
+     "staff": [
+      3,
+      4
+     ],
+     "weight": 1.1
+    }
+   }
+  }
+ },
+ "difficulty": {
+  "_note": "2026-10-17 사용자 결정(results/새기능_시작화면_난이도.md). 숫자는 모두 작업자가 정한 것(자동 건설 봇 비교, 같은 문서 「구현 결과」). move_in_mult 입주 확률 배율(최대 1, 호텔 손님도) / stress_mult 이용자 스트레스(방 평가값) 배율 / dirt_gain_mult 더러움 쌓이는 양 배율 / cleaner_near_floors 청소 시설이 닿는 위아래 층 수 / support_for_3 3레벨 지원 시설 종류 수 / income_mult 수입 배율(월세·분양·가게·식당·숙박, 하드 = 기준 1.0) / pests 벌레·냄새 사건(하드만) / loan_monthly_rate 대출 월 이자율(이지 1%·노멀 2%·하드 3%, 2026-10-18 사용자 결정) / refund_floor 바닥 블록(로비·층 바닥·복도 칸) 철거 때 지은 값을 돌려줌(이지만, 사용자 요청 2026-10-17 — 방·엘리베이터 등 다른 시설은 미정이라 돌려주지 않음). 질병은 게임에 없음(건강관리실은 지원 시설로만 셈). no_features(시험용 원래 규칙)에서는 배율을 쓰지 않음",
+  "modes": [
+   "easy",
+   "normal",
+   "hard"
+  ],
+  "easy": {
+   "move_in_mult": 1.3,
+   "stress_mult": 0.65,
+   "dirt_gain_mult": 0.5,
+   "cleaner_near_floors": 3,
+   "support_for_3": 1,
+   "income_mult": 1.25,
+   "pests": false,
+   "refund_floor": true,
+   "loan_monthly_rate": 0.01
+  },
+  "normal": {
+   "move_in_mult": 1.0,
+   "stress_mult": 1.0,
+   "dirt_gain_mult": 1.0,
+   "cleaner_near_floors": 2,
+   "support_for_3": 2,
+   "income_mult": 1.1,
+   "pests": false,
+   "refund_floor": false,
+   "loan_monthly_rate": 0.02
+  },
+  "hard": {
+   "move_in_mult": 0.85,
+   "stress_mult": 1.15,
+   "dirt_gain_mult": 1.3,
+   "cleaner_near_floors": 1,
+   "support_for_3": 3,
+   "income_mult": 1.0,
+   "pests": true,
+   "refund_floor": false,
+   "loan_monthly_rate": 0.03
+  }
+ },
+ "missions": [
+  {
+   "key": "lv2",
+   "name": "첫 도약",
+   "desc": "Lv.2 달성",
+   "kind": "level",
+   "target": 2,
+   "reward": "decor_planter"
+  },
+  {
+   "key": "trades4",
+   "name": "북적이는 상가",
+   "desc": "업종 4종이 동시에 영업",
+   "kind": "trades_open",
+   "target": 4,
+   "reward": "decor_bench"
+  },
+  {
+   "key": "cats3",
+   "name": "없는 게 없는 건물",
+   "desc": "상가 분류 3가지 이상이 동시에 영업",
+   "kind": "categories_open",
+   "target": 3,
+   "reward": "decor_statue"
+  },
+  {
+   "key": "merged3",
+   "name": "큰 가게 유치",
+   "desc": "3칸 이상 묶음 가게 입주",
+   "kind": "merged_shop",
+   "target": 3,
+   "reward": "decor_aquarium"
+  },
+  {
+   "key": "vip3",
+   "name": "귀한 손님",
+   "desc": "VIP 손님 3번 방문",
+   "kind": "vip_visits",
+   "target": 3,
+   "reward": "decor_fountain"
+  },
+  {
+   "key": "renov3",
+   "name": "새 단장",
+   "desc": "리모델링 3번",
+   "kind": "renovations",
+   "target": 3,
+   "reward": "decor_art"
+  },
+  {
+   "key": "pop300",
+   "name": "300명의 건물",
+   "desc": "인구 300명",
+   "kind": "population",
+   "target": 300,
+   "reward": "decor_piano"
+  },
+  {
+   "key": "hotel20",
+   "name": "단골 숙소",
+   "desc": "호텔 체크인 20번",
+   "kind": "hotel_checkins",
+   "target": 20,
+   "reward": "decor_pavilion"
+  }
+ ],
+ "amenity": {
+  "_note": "시설·이용자 효과표 (2026-10-17 사용자 요청, 분류·값은 모두 작업자가 정한 것 — 표는 results/시설_이용자_효과표.md). 모든 시설(rooms.*, transports.*, shop_trades.trades.*)은 effects 칸에 이 표의 items 키를 적는다. 효과가 없으면 그 항목에 none(이유)을 적는다. 항목이 없거나 effects가 비면 release_check와 시험이 오류를 냄. 효과 = Σ(값 × 가까움) × calc.scale[종류] (종류별 최대 calc.max), 가까움 = 1 / (1 + 걷는 거리 / walk_scale_cells) (다른 층: 엘리베이터·계단까지 거리 + 층마다 floor_cost_cells, range_floors층 넘으면 0; 항목에 range_floors·walk_scale_cells가 있으면 그 값). 같은 항목이 여럿이면 가까운 순으로 1, stack_decay, stack_decay²…를 곱해 더함(겹침 감소).",
+  "classes": {
+   "office": {
+    "name": "사무실 직원",
+    "rule": "사무실 방 (role office)"
+   },
+   "single": {
+    "name": "1·2인 가구",
+    "rule": "주택 중 아이 있는 가족·노인 가구가 아닌 집 (원룸·1.5룸, 아이 없는 투룸)"
+   },
+   "family": {
+    "name": "아이 있는 가족",
+    "rule": "분양 주택(rent_kind sale)에 사는 사람이 3명 이상 — 게임에서 3번째 사람부터 아이로 그림. 빈 방은 규칙표 people 최소가 3 이상이면"
+   },
+   "senior": {
+    "name": "노인 가구",
+    "rule": "아이 없는 주택 중 입주자 성향이 senior_traits(아침형)인 집"
+   },
+   "business": {
+    "name": "출장 손님",
+    "rule": "호텔 1인 객실"
+   },
+   "tourist": {
+    "name": "관광 손님",
+    "rule": "호텔 2인·프리미엄 객실"
+   },
+   "customer": {
+    "name": "상가 손님",
+    "rule": "건물 밖에서 오는 손님 — 업종 가게·카페·식당·시네마 등 장사하는 곳 자리에서 잼"
+   },
+   "vip": {
+    "name": "VIP",
+    "rule": "VIP 손님 — 들를 곳을 고를 때(머무는 시간·지출 효과가 큰 곳일수록 잘 감)와 머무는 시간"
+   }
+  },
+  "senior_traits": [
+   "아침형"
+  ],
+  "kinds": {
+   "stress": "만족도: 하루 평가 스트레스를 줄임 (사무실·주택·호텔 방)",
+   "move_in": "입주 확률: 빈 사무실·주택 입주 확률, 호텔 체크인 확률을 %만큼 올림",
+   "stay": "머무는 시간: 상가 손님·VIP가 그곳에 머무는 시간을 %만큼 늘림",
+   "spend": "지출: 카페·식당 등 하루 장사 수입을 %만큼 올림"
+  },
+  "calc": {
+   "walk_scale_cells": 14,
+   "floor_cost_cells": 6,
+   "range_floors": 4,
+   "stack_decay": 0.35,
+   "scale": {
+    "stress": 8.0,
+    "move_in": 10.0,
+    "stay": 10.0,
+    "spend": 10.0
+   },
+   "max": {
+    "stress": 20.0,
+    "move_in": 30.0,
+    "stay": 30.0,
+    "spend": 30.0
+   }
+  },
+  "items": {
+   "trade_convenience": {
+    "name": "편의점",
+    "users": {
+     "office": {
+      "stress": 1.0
+     },
+     "single": {
+      "stress": 1.0,
+      "move_in": 0.3
+     },
+     "family": {
+      "stress": 1.0
+     },
+     "senior": {
+      "stress": 1.0
+     },
+     "business": {
+      "stress": 1.0
+     },
+     "tourist": {
+      "stress": 1.0
+     }
+    }
+   },
+   "trade_bakery": {
+    "name": "베이커리 카페",
+    "users": {
+     "office": {
+      "stress": 1.0
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.5
+     },
+     "senior": {
+      "stress": 0.5
+     },
+     "business": {
+      "stress": 1.0
+     },
+     "tourist": {
+      "stress": 1.0
+     },
+     "customer": {
+      "stay": 0.2
+     }
+    }
+   },
+   "trade_snack": {
+    "name": "김밥·분식",
+    "users": {
+     "office": {
+      "stress": 1.0,
+      "move_in": 0.3
+     },
+     "single": {
+      "stress": 0.2
+     },
+     "family": {
+      "stress": 0.2
+     },
+     "senior": {
+      "stress": 0.2
+     },
+     "business": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.5
+     }
+    }
+   },
+   "trade_flower": {
+    "name": "플라워숍",
+    "users": {
+     "office": {
+      "stress": 0.2
+     },
+     "single": {
+      "stress": 0.2
+     },
+     "family": {
+      "stress": 0.2
+     },
+     "senior": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.2
+     },
+     "customer": {
+      "stay": 0.2
+     }
+    }
+   },
+   "trade_hair": {
+    "name": "헤어살롱",
+    "users": {
+     "office": {
+      "stress": 0.2
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.5
+     },
+     "senior": {
+      "stress": 0.5
+     },
+     "business": {
+      "stress": 0.2
+     },
+     "tourist": {
+      "stress": 0.2
+     }
+    }
+   },
+   "trade_drugstore": {
+    "name": "드럭스토어",
+    "users": {
+     "office": {
+      "stress": 0.5
+     },
+     "single": {
+      "stress": 1.0
+     },
+     "family": {
+      "stress": 1.0
+     },
+     "senior": {
+      "stress": 1.0,
+      "move_in": 0.5
+     },
+     "business": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.5
+     }
+    }
+   },
+   "trade_stationery": {
+    "name": "문구·생활잡화",
+    "users": {
+     "office": {
+      "stress": 0.2
+     },
+     "single": {
+      "stress": 0.2
+     },
+     "family": {
+      "stress": 0.5
+     }
+    }
+   },
+   "trade_apparel": {
+    "name": "의류 편집숍",
+    "users": {
+     "office": {
+      "stress": 0.2
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.2
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "stay": 0.3,
+      "spend": 0.3
+     }
+    }
+   },
+   "trade_mart": {
+    "name": "동네 마트",
+    "users": {
+     "office": {
+      "stress": 0.5
+     },
+     "single": {
+      "stress": 1.0
+     },
+     "family": {
+      "stress": 1.0,
+      "move_in": 0.5
+     },
+     "senior": {
+      "stress": 1.0,
+      "move_in": 0.5
+     },
+     "business": {
+      "stress": 0.2
+     },
+     "tourist": {
+      "stress": 0.2
+     }
+    }
+   },
+   "trade_gym": {
+    "name": "헬스장",
+    "users": {
+     "office": {
+      "stress": 0.5,
+      "move_in": 0.3
+     },
+     "single": {
+      "stress": 1.0,
+      "move_in": 0.3
+     },
+     "family": {
+      "stress": 0.3
+     },
+     "senior": {
+      "stress": 0.2
+     },
+     "business": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.2
+     }
+    }
+   },
+   "trade_pilates": {
+    "name": "필라테스 스튜디오",
+    "users": {
+     "office": {
+      "stress": 0.2
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.5
+     },
+     "senior": {
+      "stress": 0.2
+     }
+    }
+   },
+   "trade_derma": {
+    "name": "피부과",
+    "users": {
+     "office": {
+      "stress": 0.2
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.3
+     },
+     "senior": {
+      "stress": 0.3
+     },
+     "tourist": {
+      "stress": 0.3
+     }
+    }
+   },
+   "trade_dental": {
+    "name": "치과",
+    "users": {
+     "office": {
+      "stress": 0.5
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 1.0
+     },
+     "senior": {
+      "stress": 1.0
+     }
+    }
+   },
+   "trade_clinic": {
+    "name": "가정의원",
+    "users": {
+     "office": {
+      "stress": 0.5
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 1.0,
+      "move_in": 0.5
+     },
+     "senior": {
+      "stress": 1.0,
+      "move_in": 1.0
+     },
+     "business": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.5
+     }
+    }
+   },
+   "trade_rehab": {
+    "name": "한방·재활 센터",
+    "users": {
+     "office": {
+      "stress": 0.3
+     },
+     "single": {
+      "stress": 0.2
+     },
+     "family": {
+      "stress": 0.2
+     },
+     "senior": {
+      "stress": 1.0,
+      "move_in": 0.5
+     }
+    }
+   },
+   "trade_kidscafe": {
+    "name": "키즈카페",
+    "users": {
+     "family": {
+      "stress": 1.0,
+      "move_in": 1.0
+     },
+     "senior": {
+      "stress": 0.2
+     },
+     "tourist": {
+      "stress": 0.3
+     }
+    }
+   },
+   "recv_office": {
+    "none": "일하는 곳 — 효과를 받는 쪽(사무실 직원)"
+   },
+   "recv_home": {
+    "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)"
+   },
+   "recv_hotel": {
+    "none": "묵는 곳 — 효과를 받는 쪽(출장·관광 손님)"
+   },
+   "shop_cell": {
+    "none": "업종이 정해지기 전 빈 상가 칸 — 업종이 정해지면 그 업종 항목(trade_*)을 씀"
+   },
+   "cafe": {
+    "name": "카페",
+    "users": {
+     "office": {
+      "stress": 1.0
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.3
+     },
+     "senior": {
+      "stress": 0.3
+     },
+     "business": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "stay": 0.2,
+      "spend": 0.2
+     }
+    }
+   },
+   "restaurant": {
+    "name": "식당",
+    "users": {
+     "office": {
+      "stress": 1.0
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.5
+     },
+     "senior": {
+      "stress": 0.5
+     },
+     "business": {
+      "stress": 1.0
+     },
+     "tourist": {
+      "stress": 1.0
+     },
+     "customer": {
+      "spend": 0.2
+     }
+    }
+   },
+   "cinema": {
+    "name": "시네마 라운지",
+    "users": {
+     "office": {
+      "stress": 0.2
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "stay": 0.3,
+      "spend": 0.3
+     },
+     "vip": {
+      "stay": 0.3
+     }
+    }
+   },
+   "party_hall": {
+    "name": "파티룸",
+    "users": {
+     "office": {
+      "stress": 0.3
+     },
+     "single": {
+      "stress": 0.3
+     },
+     "family": {
+      "stress": 0.3
+     },
+     "tourist": {
+      "stress": 0.2
+     }
+    }
+   },
+   "shopping_mall": {
+    "name": "쇼핑몰",
+    "users": {
+     "office": {
+      "stress": 0.5
+     },
+     "single": {
+      "stress": 0.5,
+      "move_in": 0.3
+     },
+     "family": {
+      "stress": 1.0,
+      "move_in": 0.3
+     },
+     "senior": {
+      "stress": 0.3
+     },
+     "tourist": {
+      "stress": 1.0
+     },
+     "customer": {
+      "stay": 0.3,
+      "spend": 0.5
+     },
+     "vip": {
+      "spend": 0.3
+     }
+    }
+   },
+   "sky_lounge": {
+    "name": "스카이 라운지",
+    "users": {
+     "office": {
+      "stress": 0.5
+     },
+     "single": {
+      "stress": 0.3
+     },
+     "business": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 1.0
+     },
+     "customer": {
+      "stay": 0.3
+     },
+     "vip": {
+      "stay": 0.5,
+      "spend": 0.5
+     }
+    }
+   },
+   "rooftop_cafe": {
+    "name": "옥상 카페",
+    "users": {
+     "office": {
+      "stress": 0.5
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.3
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "stay": 0.2
+     }
+    }
+   },
+   "parking_space": {
+    "name": "주차 칸",
+    "none": "효과는 주차 계산으로 — 차 있는 입주자의 필요 칸·차 손님·주차비 (규칙표 parking)"
+   },
+   "parking_ramp": {
+    "name": "주차장 진입로",
+    "none": "주차 칸·차로를 바깥 도로와 잇는 통로 — 효과는 주차 계산과 쓰레기 수거 트럭으로"
+   },
+   "lane": {
+    "name": "차로",
+    "none": "지하 차가 다니는 길 — 효과는 주차 칸·분리수거장 연결(주차 계산·수거 트럭)으로"
+   },
+   "crosswalk": {
+    "name": "횡단 표시",
+    "none": "차로 위에서 사람이 건너는 칸 — 편의 효과 없음 (걷는 길이 짧아지는 것은 동선 계산에 이미 들어감)"
+   },
+   "metro": {
+    "name": "환승 통로",
+    "users": {
+     "office": {
+      "stress": 0.5,
+      "move_in": 0.5
+     },
+     "single": {
+      "move_in": 0.3
+     },
+     "business": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "spend": 0.5
+     }
+    }
+   },
+   "transport": {
+    "none": "이동 수단(계단·엘리베이터·에스컬레이터) — 걷는 거리·기다림은 동선·스트레스 계산에 이미 들어감"
+   },
+   "maintenance_office": {
+    "name": "관리사무소",
+    "users": {
+     "office": {
+      "move_in": 0.2
+     },
+     "single": {
+      "stress": 0.3,
+      "move_in": 0.3
+     },
+     "family": {
+      "stress": 0.3,
+      "move_in": 0.3
+     },
+     "senior": {
+      "stress": 0.5,
+      "move_in": 0.3
+     }
+    },
+    "note": "더러움과는 관계없음 — 시설 노후·수리 관리"
+   },
+   "medical": {
+    "name": "건강관리실",
+    "users": {
+     "office": {
+      "stress": 0.5
+     },
+     "single": {
+      "stress": 0.3
+     },
+     "family": {
+      "stress": 0.5
+     },
+     "senior": {
+      "stress": 1.0,
+      "move_in": 0.5
+     },
+     "business": {
+      "stress": 0.2
+     },
+     "tourist": {
+      "stress": 0.2
+     }
+    }
+   },
+   "security": {
+    "name": "방재센터",
+    "users": {
+     "office": {
+      "move_in": 0.3
+     },
+     "single": {
+      "move_in": 0.2
+     },
+     "family": {
+      "move_in": 0.3
+     },
+     "senior": {
+      "move_in": 0.3
+     },
+     "tourist": {
+      "move_in": 0.2
+     }
+    }
+   },
+   "housekeeping": {
+    "name": "하우스키핑 센터",
+    "none": "효과는 쓰레기 흐름(위생)으로 — 범위 안 방 청소·창고·카트 운반 (편의 효과표에서는 따로 없음)"
+   },
+   "recycling": {
+    "name": "분리수거장",
+    "none": "효과는 쓰레기 흐름(위생)으로 — 쓰레기 보관·수거 트럭 (편의 효과표에서는 따로 없음)"
+   },
+   "parcel_room": {
+    "name": "택배 보관함",
+    "users": {
+     "office": {
+      "stress": 0.3
+     },
+     "single": {
+      "stress": 1.0
+     },
+     "family": {
+      "stress": 0.5
+     },
+     "senior": {
+      "stress": 0.5
+     }
+    }
+   },
+   "electrical_room": {
+    "none": "변전실 — 전력 설비(편의 효과 없음, 전력 기능은 전력 관리 시스템)"
+   },
+   "solar_panel": {
+    "none": "태양광 패널 — 전기료만 줄임(편의 효과 없음)"
+   },
+   "cathedral": {
+    "name": "전망대",
+    "users": {
+     "family": {
+      "stress": 0.3
+     },
+     "tourist": {
+      "stress": 1.0,
+      "move_in": 0.5
+     },
+     "customer": {
+      "stay": 0.3
+     },
+     "vip": {
+      "stay": 0.5
+     }
+    }
+   },
+   "rooftop_garden": {
+    "name": "옥상 정원",
+    "users": {
+     "office": {
+      "stress": 0.3
+     },
+     "single": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.5
+     },
+     "senior": {
+      "stress": 1.0
+     },
+     "tourist": {
+      "stress": 0.3
+     },
+     "vip": {
+      "stay": 0.2
+     }
+    }
+   },
+   "decor_planter": {
+    "name": "화분 정원",
+    "users": {
+     "office": {
+      "stress": 0.2
+     },
+     "single": {
+      "stress": 0.2
+     },
+     "senior": {
+      "stress": 0.3
+     },
+     "customer": {
+      "stay": 0.1
+     }
+    },
+    "range_floors": 0,
+    "walk_scale_cells": 8
+   },
+   "decor_bench": {
+    "name": "쉼터 벤치",
+    "users": {
+     "senior": {
+      "stress": 0.5
+     },
+     "family": {
+      "stress": 0.3
+     },
+     "customer": {
+      "stay": 0.2
+     }
+    },
+    "range_floors": 0,
+    "walk_scale_cells": 8
+   },
+   "decor_statue": {
+    "name": "조각상",
+    "users": {
+     "tourist": {
+      "stress": 0.3
+     },
+     "customer": {
+      "stay": 0.2
+     },
+     "vip": {
+      "stay": 0.2
+     }
+    },
+    "range_floors": 0,
+    "walk_scale_cells": 8
+   },
+   "decor_fountain": {
+    "name": "실내 분수",
+    "users": {
+     "family": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "stay": 0.3,
+      "spend": 0.2
+     },
+     "vip": {
+      "stay": 0.3
+     }
+    },
+    "range_floors": 0,
+    "walk_scale_cells": 8
+   },
+   "decor_aquarium": {
+    "name": "수족관",
+    "users": {
+     "family": {
+      "stress": 1.0
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "stay": 0.3
+     },
+     "vip": {
+      "stay": 0.3
+     }
+    },
+    "range_floors": 0,
+    "walk_scale_cells": 8
+   },
+   "decor_piano": {
+    "name": "그랜드 피아노",
+    "users": {
+     "office": {
+      "stress": 0.3
+     },
+     "single": {
+      "stress": 0.3
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "stay": 0.3,
+      "spend": 0.2
+     },
+     "vip": {
+      "stay": 0.5,
+      "spend": 0.3
+     }
+    },
+    "range_floors": 0,
+    "walk_scale_cells": 8
+   },
+   "decor_art": {
+    "name": "미디어 아트 기둥",
+    "users": {
+     "single": {
+      "stress": 0.3
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "customer": {
+      "stay": 0.3,
+      "spend": 0.2
+     },
+     "vip": {
+      "stay": 0.3
+     }
+    },
+    "range_floors": 0,
+    "walk_scale_cells": 8
+   },
+   "decor_pavilion": {
+    "name": "옥상 정자",
+    "users": {
+     "office": {
+      "stress": 0.3
+     },
+     "family": {
+      "stress": 0.3
+     },
+     "senior": {
+      "stress": 0.5
+     },
+     "tourist": {
+      "stress": 0.5
+     },
+     "vip": {
+      "stay": 0.3
+     }
+    },
+    "range_floors": 0,
+    "walk_scale_cells": 8
+   }
+  }
+ },
+ "examples": {
+  "office_month": 990,
+  "office_month_normal": 1089,
+  "office_payback_days": 14,
+  "dist20": 0.5,
+  "p_normal": 0.7,
+  "days_near": 0.7142857142857143,
+  "days_far": 1.4285714285714286,
+  "am_near10": 0.5833333333333333,
+  "am_one": 4.666666666666666,
+  "am_two": 5.819607843137254,
+  "am_other_floor": 0.38888888888888895,
+  "street_day": 1875.0,
+  "lobby40": 1.25,
+  "cafe_be": 10,
+  "elev25": 5980,
+  "exp60": 20840
+ },
+ "sources": {
+  "facilities": [
+   "data/grid3d_rules.json rooms·transports·costs",
+   "data/facility_categories.json",
+   "scripts/grid3d/grid_world.gd:cost·check_room·room_floor_reason·check_transport",
+   "scripts/grid3d/grid_world.gd:unlock_state",
+   "scripts/grid3d/grid_game.gd:level_conditions_met (최고 레벨 3)"
+  ],
+  "tools": [
+   "data/grid3d_rules.json costs",
+   "scripts/grid3d/grid_world.gd:check_lobby·check_slab·check_lane·check_crosswalk"
+  ],
+  "time": [
+   "data/grid3d_rules.json time·economy·systems.hygiene",
+   "scripts/grid3d/grid_clock.gd:minutes·advance",
+   "scripts/grid3d/grid_game.gd:step·_on_day_changed",
+   "scripts/grid3d/features/hygiene.gd:on_tick",
+   "data/grid3d_rules.json time·economy.settlement_by_calendar",
+   "scripts/grid3d/grid_clock.gd:minutes·prev_month_days",
+   "scripts/grid3d/grid_game.gd:settlement·_settle_other"
+  ],
+  "examples": [
+   "scripts/grid3d/grid_economy.gd:distance_factor·move_in_chance·expected_move_in_days·settle_month",
+   "scripts/grid3d/amenity.gd:detail·bonus",
+   "scripts/grid3d/features/street.gd:traffic_at·daily_total·lobby_factor"
+  ],
+  "goal": [
+   "data/grid3d_rules.json start_money·land_*·zones·stars·time",
+   "data/game_info.json money.unit_won",
+   "scripts/core/game_info.gd:money_text"
+  ],
+  "screen": [
+   "data/guide.json chapters.start (게임 안 가이드 글)"
+  ],
+  "first-steps": [
+   "data/grid3d_rules.json costs·rooms·transports·economy.move_in_distance·systems.power·stars",
+   "scripts/grid3d/grid_world.gd:check_slab·_slab_fill_column"
+  ],
+  "floors": [
+   "data/guide.json chapters.floors",
+   "scripts/grid3d/grid_world.gd:check_lobby·check_slab·room_floor_reason·door_zone"
+  ],
+  "rooms": [
+   "data/guide.json chapters.rooms",
+   "data/grid3d_rules.json economy",
+   "scripts/grid3d/grid_economy.gd:move_in_chance·expected_move_in_days·set_tier"
+  ],
+  "trades": [
+   "data/grid3d_rules.json shop_trades·systems.hygiene.trash_mult_by_trade·parking.car_customer_ratio_by_trade",
+   "scripts/grid3d/shop_trades.gd:weight·candidates·find_group·check_groups",
+   "scripts/grid3d/features/traits.gd:_shop_tick"
+  ],
+  "venues": [
+   "data/grid3d_rules.json venue_types",
+   "scripts/grid3d/venue_types.gd:pick_for·candidates_for·assign_missing·choose·expire",
+   "scripts/grid3d/features/traits.gd:room_actions·do_action(vpick)",
+   "scripts/grid3d/grid_economy.gd:settle_commercial_day·money_line",
+   "scripts/ui_grid3d/venue_interior.gd"
+  ],
+  "transport": [
+   "data/guide.json chapters.transport",
+   "data/grid3d_rules.json transports·people",
+   "scripts/grid3d/grid_world.gd:check_transport·transport_stops·_ride_cost",
+   "scripts/grid3d/grid_transport.gd:update",
+   "scripts/grid3d/grid_distance.gd:_build"
+  ],
+  "parking": [
+   "data/guide.json chapters.parking",
+   "data/grid3d_rules.json parking·rooms.parking_space·transports.parking_ramp",
+   "scripts/grid3d/parking.gd:state·rating_add·move_in_mult·customer_mult·rent_mult·outside_cars",
+   "scripts/grid3d/grid_world.gd:parking_status·_ramp_edge_reason·check_lane·crosswalk_fix"
+  ],
+  "trash": [
+   "data/guide.json chapters.parking",
+   "data/grid3d_rules.json systems.hygiene·difficulty",
+   "scripts/grid3d/features/hygiene.gd:daily_gain·start_cleaners·plan_carts·truck_all·outside_all·rating_adjust·_pests·truck_why",
+   "scripts/grid3d/grid_people.gd:_walk (카트 스트레스)"
+  ],
+  "power": [
+   "data/grid3d_rules.json systems.power·systems.weather.power_mult",
+   "scripts/grid3d/features/power.gd:base_demand·capacity·update_level·on_tick·month_costs"
+  ],
+  "aging": [
+   "data/grid3d_rules.json systems.aging",
+   "scripts/grid3d/features/aging.gd:on_day·_repair·rent_mult·rating_adjust·_renovate_cost"
+  ],
+  "street-weather": [
+   "data/grid3d_rules.json systems.street·systems.weather·time.season_of_month",
+   "scripts/grid3d/features/street.gd:distribute·room_factor·lobby_factor",
+   "scripts/grid3d/features/weather.gd:on_day·street_mult·income_mult"
+  ],
+  "demolish": [
+   "data/guide.json chapters.demolish",
+   "scripts/grid3d/grid_world.gd:check_demolish",
+   "scripts/grid3d/demolish_tools.gd",
+   "scripts/grid3d/grid_game.gd:demolish_refund"
+  ],
+  "economy": [
+   "scripts/grid3d/grid_economy.gd:settle_month·settle_commercial_day·move_in·hotel_checkout·charge_interest·borrow·repay",
+   "scripts/grid3d/features/features.gd:rent_mult·customer_mult·income_mult",
+   "scripts/grid3d/features/aging.gd:rent_mult",
+   "scripts/grid3d/features/traits.gd:rent_mult",
+   "scripts/grid3d/features/themes.gd",
+   "scripts/grid3d/features/power.gd:month_costs",
+   "scripts/grid3d/parking.gd"
+  ],
+  "move-in": [
+   "scripts/grid3d/grid_economy.gd:distance_factor·move_in_chance·expected_move_in_days·check_tenants·assign_hotel_guests",
+   "scripts/grid3d/grid_distance.gd",
+   "scripts/grid3d/features/traits.gd:allow_auto_move_in"
+  ],
+  "rating": [
+   "scripts/grid3d/grid_people.gd:_add_stress·_walk·_decor_walk·step",
+   "scripts/grid3d/grid_economy.gd:evaluate_begin·evaluate_step·rating_level",
+   "scripts/grid3d/features/*.gd:rating_adjust",
+   "data/grid3d_rules.json people·stars"
+  ],
+  "amenity": [
+   "data/grid3d_rules.json amenity_effects",
+   "scripts/grid3d/amenity.gd:user_class·sources·detail·bonus"
+  ],
+  "matrix": [
+   "data/grid3d_rules.json amenity_effects.items·classes"
+  ],
+  "difficulty": [
+   "data/grid3d_rules.json difficulty",
+   "scripts/grid3d/difficulty.gd",
+   "scripts/grid3d/grid_game.gd:diff"
+  ],
+  "level": [
+   "data/grid3d_rules.json stars·land_*",
+   "scripts/grid3d/grid_game.gd:level_conditions_met·support_running·population·raise_star",
+   "scripts/grid3d/grid_world.gd:land_rect·unlock_state"
+  ],
+  "missions": [
+   "data/grid3d_rules.json missions·vip·rooms.decor_*",
+   "scripts/grid3d/missions.gd:progress·check",
+   "scripts/grid3d/grid_game.gd:_plan_vip·_spawn_vip"
+  ],
+  "systems": [
+   "data/grid3d_rules.json systems.traits·themes·delivery·rooftop",
+   "scripts/grid3d/features/traits.gd",
+   "scripts/grid3d/features/themes.gd",
+   "scripts/grid3d/features/delivery.gd",
+   "scripts/grid3d/features/rooftop.gd"
+  ],
+  "interactions": [
+   "앞 절들의 근거 그대로"
+  ],
+  "faq": [
+   "scripts/grid3d/features/hygiene.gd:truck_why",
+   "scripts/grid3d/grid_world.gd:parking_status",
+   "scripts/grid3d/grid_economy.gd:expected_move_in_days",
+   "scripts/grid3d/features/features.gd:info_lines",
+   "scripts/grid3d/features/power.gd"
+  ],
+  "glossary": []
+ },
+ "unverified": [
+  "엘리베이터 카가 손님을 고르는 순서(누구부터 태우는지)·대기 줄 규칙의 자세한 동작 — grid_transport.gd를 다 읽지 않아 페이지에 쓰지 않음",
+  "길찾기 비용(어느 길을 고르는지)의 숫자 — ticks_per_floor·wait_ticks가 '어림값'이라는 규칙표 설명만 확인, 실제 가중치 계산(grid_world.gd _dijkstra·_tree)은 쓰지 않음",
+  "화면 조작(키·손가락)은 게임 안 가이드(data/guide.json) 글을 그대로 옮김 — 화면 코드(scripts/ui_grid3d)로 다시 확인하지 않음",
+  "문제 표시(!, issues.gd)는 진행 중이라 '곧 추가'로만 적음",
+  "지하 차로 차(lane_cars.gd)의 움직임은 화면용이라 규칙표 값(층마다 최대 대수·기다림)만 적음",
+  "거리 손님 수의 실제 범위(가게 수의 제곱근으로 나눔)는 공식만 적고 '하루 몇 명'은 규칙표 설명(1층 가게 25~30명 목표)을 쓰지 않음"
+ ],
+ "diffs": [
+  {
+   "what": "호텔 객실 청소 수",
+   "doc": "규칙표 rooms.housekeeping._note: '하루 staff개 객실까지'",
+   "code": "grid_economy.gd clean_hotels가 hotel_clean_ticks 두 시각마다 staff개씩 → 하루 최대 staff × 2개",
+   "page": "코드대로 '청소 시각마다 5곳까지' 로 씀"
+  },
+  {
+   "what": "태양광 패널 효과 설명",
+   "doc": "amenity_effects.items.solar_panel.none: '전기료만 줄임'",
+   "code": "rooftop.gd solar_capacity / power.gd capacity: 전력 공급량만 늘림. 전기료(월 정산)는 사용량 × 0.25로 공급과 무관",
+   "page": "코드대로 '전력 공급 +' 로 씀"
+  },
+  {
+   "what": "4·5레벨 시설",
+   "doc": "규칙표 stars.population_thresholds에 3000·8000, 포룸(대)·환승 통로 Lv4, 전망대 Lv5",
+   "code": "grid_game.gd level_conditions_met: 레벨 3에서 멈춤",
+   "page": "'지금 판에서는 지을 수 없음'으로 표시 — 4레벨 이상을 열지, 시설 레벨을 낮출지 사용자 결정 필요"
+  },
+  {
+   "what": "입주자 성향 후보 기다림",
+   "doc": "traits.gd 맨 위 설명 '1300'",
+   "code": "규칙표 traits.choose_ticks 1200을 읽음",
+   "page": "규칙표 값 1200틱"
+  },
+  {
+   "what": "카트 스트레스 시간",
+   "doc": "규칙표 cart_stress_ticks 60",
+   "code": "실제 운반(grid_people.gd _walk)은 60, 계산만 하는 haul_all(시험용)의 기본값은 300",
+   "page": "60틱"
+  }
+ ],
+ "images": [
+  "demolish_building",
+  "demolish_range",
+  "effects_info",
+  "floor_slab_fill",
+  "issues_marks",
+  "level_locked",
+  "level_missions",
+  "money_finance",
+  "parking_flow",
+  "room_place",
+  "start_place",
+  "start_screen",
+  "transport_extend"
+ ],
+ "counts": {
+  "rooms": 45,
+  "transports": 7,
+  "facilities_on_page": 52,
+  "trades": 16
+ },
+ "names_missing_in_strings": []
+}
