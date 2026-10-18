@@ -1,6 +1,6 @@
 {
- "_info": "부자되쉴? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
- "version": "0.2.3",
+ "_info": "부자되실? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
+ "version": "0.2.4",
  "max_level": 3,
  "land_by_level": [
   20,
@@ -3189,6 +3189,8 @@
  },
  "venues": {
   "_note": "식당·카페·쇼핑몰 업종(2026-10-18 사용자 요청 \"가게처럼 다양성이 필요해\", scripts/grid3d/venue_types.gd). 하루 장사 시설(rent_kind daily)에 업종 o[\"venue\"]를 줌. rooms = 방 종류 → 업종 묶음 이름(groups). 새로 지은 시설은 영업을 시작하면서 방 id로 정한 업종으로 바로 문을 열고, 정보창에 후보 candidates개가 choose_ticks 동안 나와 가게 세입자 고르기처럼 [업종: …] 버튼으로 고르면 바로 바뀜(안 고르면 지금 업종으로 확정). 옛 저장(업종 없음)은 불러올 때 방 id로 정해짐(불러올 때마다 같음, 후보 없이 바로 확정). 업종 칸: name 이름, floor 바닥색·sign 간판색(36색 이름), icon 간판 기호(proto_view TRADE_ICONS, 그림 assets/art/ui/sign_trade_<icon>.png), customer_mult 손님이 고를 때 무게, visit_stay 손님이 머무는 틱, income_mult 객단가 배율(가게 rent_mult 대신), staff 직원 수, weight 정해질 무게. 효과표(amenity)는 업종이 아니라 방 종류의 effects를 그대로 씀. 업종 목록·숫자는 작업자가 정한 값(가게 업종 표의 폭 안: 손님 배율 0.8~1.3, 객단가 배율 0.85~1.15로 좁게 — 업종마다 손님 배율 × 객단가 배율이 0.9~1.15가 되게 맞춰 지금 균형을 크게 흔들지 않음)",
+  "_note_b": "2026-10-18 사용자 결정(B1·B2): 새로 지은 시설은 가게처럼 업종 후보 candidates개가 나오고 업종이 정해질 때까지 영업하지 않음(빈 방) → 정보창 [입주: …]로 고르면 그 업종으로 영업, choose_ticks 안에 안 고르면 후보 중 무작위 하나(게임 난수, 저장됨). 입주자 성향 시스템이 꺼져 있으면 후보 없이 무작위로 바로 정함. 옛 저장은 방 id로 자동 확정(그대로). 업종 변경(리모델링): 확정 뒤 정보창 [업종 변경: …] → 확인 상자 → 짓는 값 × remodel_cost_ratio를 내고 즉시 바뀜(영업 중지 없음, 직원 수 그대로). remodel_cost_ratio 0.5는 작업자가 정한 값(사용자 지시 \"짓는 값의 절반\")",
+  "remodel_cost_ratio": 0.5,
   "candidates": 3,
   "choose_ticks": 1200,
   "rooms": {
