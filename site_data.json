@@ -1,6 +1,6 @@
 {
  "_info": "부자되실? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
- "version": "0.2.4",
+ "version": "0.2.5",
  "max_level": 3,
  "land_by_level": [
   20,
@@ -2514,7 +2514,8 @@
    "none": "이동 수단(계단·엘리베이터·에스컬레이터) — 걷는 거리·기다림은 동선·스트레스 계산에 이미 들어감",
    "notes": [
     "카 1대, 정원 8명, 한 층에 10틱(약 5분), 문 열림 8틱.",
-    "기다리는 동안 1틱마다 스트레스 +1."
+    "기다리는 동안 1틱마다 스트레스 +0.5.",
+    "타기 직전 12칸 안에 같은 층으로 가는 엘리베이터가 더 있으면 도착이 빠른 쪽으로 가고, 줄에서 120틱 넘게 기다리면 다른 엘리베이터·계단을 다시 고릅니다(엘리베이터 고르기 참고)."
    ],
    "in_strings": true,
    "cost_full": 5980
@@ -2553,7 +2554,8 @@
    "notes": [
     "카 1대, 정원 8명, 한 층에 10틱(약 5분), 문 열림 8틱.",
     "마주 보는 두 면에 문이 있습니다.",
-    "기다리는 동안 1틱마다 스트레스 +1."
+    "기다리는 동안 1틱마다 스트레스 +0.5.",
+    "타기 직전 12칸 안에 같은 층으로 가는 엘리베이터가 더 있으면 도착이 빠른 쪽으로 가고, 줄에서 120틱 넘게 기다리면 다른 엘리베이터·계단을 다시 고릅니다(엘리베이터 고르기 참고)."
    ],
    "in_strings": true,
    "cost_full": 7774
@@ -2667,7 +2669,8 @@
    "notes": [
     "카 1대, 정원 8명, 한 층에 10틱(약 5분), 문 열림 8틱.",
     "손님·입주자는 타지 않습니다. 가게 직원·배달 기사·청소·운반 직원은 길을 고를 때 이 엘리베이터 비용을 ×0.4로 봐서 먼저 탑니다.",
-    "기다리는 동안 1틱마다 스트레스 +1."
+    "기다리는 동안 1틱마다 스트레스 +0.5.",
+    "타기 직전 12칸 안에 같은 층으로 가는 엘리베이터가 더 있으면 도착이 빠른 쪽으로 가고, 줄에서 120틱 넘게 기다리면 다른 엘리베이터·계단을 다시 고릅니다(엘리베이터 고르기 참고)."
    ],
    "in_strings": true,
    "cost_full": 4600
@@ -2706,7 +2709,8 @@
    "notes": [
     "카 1대, 정원 16명, 한 층에 4틱(약 2분), 문 열림 8틱.",
     "양 끝 층에만 섭니다.",
-    "기다리는 동안 1틱마다 스트레스 +1."
+    "기다리는 동안 1틱마다 스트레스 +0.5.",
+    "타기 직전 12칸 안에 같은 층으로 가는 엘리베이터가 더 있으면 도착이 빠른 쪽으로 가고, 줄에서 120틱 넘게 기다리면 다른 엘리베이터·계단을 다시 고릅니다(엘리베이터 고르기 참고)."
    ],
    "in_strings": true,
    "cost_full": 20840
@@ -4585,7 +4589,8 @@
    "scripts/grid3d/features/traits.gd:allow_auto_move_in"
   ],
   "rating": [
-   "scripts/grid3d/grid_people.gd:_add_stress·_walk·_decor_walk·step",
+   "scripts/grid3d/grid_people.gd:_add_stress·_walk·_decor_walk·step·_pick_lift·_reroute",
+   "scripts/grid3d/grid_transport.gd:est_trip",
    "scripts/grid3d/grid_economy.gd:evaluate_begin·evaluate_step·rating_level",
    "scripts/grid3d/features/*.gd:rating_adjust",
    "data/grid3d_rules.json people·stars"
