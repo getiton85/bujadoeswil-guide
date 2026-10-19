@@ -1,6 +1,6 @@
 {
  "_info": "부자되실? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
- "version": "0.2.5",
+ "version": "0.2.6",
  "max_level": 3,
  "land_by_level": [
   20,
@@ -4541,7 +4541,8 @@
    "data/grid3d_rules.json transports·people",
    "scripts/grid3d/grid_world.gd:check_transport·transport_stops·_ride_cost",
    "scripts/grid3d/grid_transport.gd:update",
-   "scripts/grid3d/grid_distance.gd:_build"
+   "scripts/grid3d/grid_distance.gd:_build",
+   "scripts/grid3d/lift_upgrade.gd:next_info·apply·path_mults·upkeep_mult"
   ],
   "parking": [
    "data/guide.json chapters.parking",
