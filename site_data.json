@@ -1,6 +1,6 @@
 {
  "_info": "부자되실? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
- "version": "0.2.8",
+ "version": "0.2.9",
  "max_level": 3,
  "land_by_level": [
   20,
@@ -316,6 +316,50 @@
    "none": "일하는 곳 — 효과를 받는 쪽(사무실 직원)",
    "notes": [
     "평일 오전 7:15~오전 10:15 출근, 점심(오후 12:00~오후 12:52, 60% 확률로 가게·카페로), 오후 4:48~오후 7:30 퇴근. 휴일(토·일)은 쉽니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "studio_mini",
+   "group": "room",
+   "name": "원룸(소형)",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    2,
+    2
+   ],
+   "cells": 4,
+   "height": 1,
+   "cost": 300,
+   "upkeep": 0.0,
+   "star": 1,
+   "unlock": "Lv.1",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    1,
+    1
+   ],
+   "role": "condo",
+   "rent_kind": "month",
+   "rent": [
+    18,
+    13,
+    9,
+    6
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 1,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다."
    ],
    "in_strings": true
   },
@@ -718,6 +762,149 @@
    "notes": [
     "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
     "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "loft_studio",
+   "group": "room",
+   "name": "복층 원룸",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    2,
+    3
+   ],
+   "cells": 6,
+   "height": 2,
+   "cost": 780,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    1,
+    2
+   ],
+   "role": "condo",
+   "rent_kind": "month",
+   "rent": [
+    46,
+    34,
+    24,
+    15
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 3,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "2개 층 높이라 위층에도 바닥이 있어야 합니다.",
+    "복층: 아래층에 현관·거실·주방, 위층에 침실이 있고 집 안 계단으로 오르내립니다. 출입문은 아래층에만 있고, 위층 칸이 엘리베이터·계단 문 앞을 덮는 자리에는 놓을 수 없습니다. 위층·아래층 어느 칸을 철거해도 집 전체가 철거됩니다.",
+    "값은 위층을 0.75칸으로 셉니다: 실효 칸 = 아래 6칸 + 위 6칸 × 0.75 = 10.5칸."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "loft_tworoom",
+   "group": "room",
+   "name": "복층 투룸",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    3,
+    4
+   ],
+   "cells": 12,
+   "height": 2,
+   "cost": 1570,
+   "upkeep": 0.0,
+   "star": 2,
+   "unlock": "Lv.2",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    2,
+    3
+   ],
+   "role": "condo",
+   "rent_kind": "sale",
+   "rent": [
+    3710,
+    2750,
+    1930,
+    1240
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 5,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이).",
+    "2개 층 높이라 위층에도 바닥이 있어야 합니다.",
+    "복층: 아래층에 현관·거실·주방, 위층에 침실이 있고 집 안 계단으로 오르내립니다. 출입문은 아래층에만 있고, 위층 칸이 엘리베이터·계단 문 앞을 덮는 자리에는 놓을 수 없습니다. 위층·아래층 어느 칸을 철거해도 집 전체가 철거됩니다.",
+    "값은 위층을 0.75칸으로 셉니다: 실효 칸 = 아래 12칸 + 위 12칸 × 0.75 = 21칸."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "loft_family",
+   "group": "room",
+   "name": "가족형 복층",
+   "cat": "home",
+   "cat_name": "주택",
+   "size": [
+    5,
+    4
+   ],
+   "cells": 20,
+   "height": 2,
+   "cost": 2620,
+   "upkeep": 0.0,
+   "star": 3,
+   "unlock": "Lv.3",
+   "unlock_kind": "level",
+   "floors": "upper",
+   "people": [
+    4,
+    5
+   ],
+   "role": "condo",
+   "rent_kind": "sale",
+   "rent": [
+    6860,
+    5080,
+    3560,
+    2290
+   ],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 8,
+   "wear": 0.8,
+   "feature": "",
+   "effects_item": "recv_home",
+   "users": null,
+   "none": "사는 곳 — 효과를 받는 쪽(1·2인 가구·아이 있는 가족·노인 가구)",
+   "notes": [
+    "주민은 하루 60% 확률로 외출(오전 7:22~오전 11:07 나감 → 오후 3:30~오후 9:30 돌아옴), 나갈 때 50% 확률로 가게에 들릅니다.",
+    "3명 이상 들어오면 3번째부터 아이가 되고, 이 집은 「아이 있는 가족」으로 셉니다(평일 등교·하교, 휴일 가족 나들이).",
+    "2개 층 높이라 위층에도 바닥이 있어야 합니다.",
+    "복층: 아래층에 현관·거실·주방, 위층에 침실이 있고 집 안 계단으로 오르내립니다. 출입문은 아래층에만 있고, 위층 칸이 엘리베이터·계단 문 앞을 덮는 자리에는 놓을 수 없습니다. 위층·아래층 어느 칸을 철거해도 집 전체가 철거됩니다.",
+    "값은 위층을 0.75칸으로 셉니다: 실효 칸 = 아래 20칸 + 위 20칸 × 0.75 = 35칸."
    ],
    "in_strings": true
   },
@@ -2733,7 +2920,7 @@
    "name": "층 바닥",
    "cost": 18,
    "where": "2층 이상·지하. 아래층(지하는 위층) 바닥 위, 1층 로비 넓이 안",
-   "note": "아무것도 놓지 않은 칸은 모두 통로(복도)가 됩니다. 아래 빈 층은 함께 깔리고 합계 비용이 나옵니다."
+   "note": "아무것도 놓지 않은 칸은 모두 통로(복도)가 됩니다. 아래 빈 층은 함께 깔리고 합계 비용이 나옵니다. 「아래 빈 층도 모두 채울까요?」에서 [아니오]면 그 층만 깔고, 같은 높이 기둥 사이(1레벨 4칸, 레벨마다 +1, 최대 8칸)는 다리 바닥(칸당 270만원, 3층부터)으로 이을 수 있습니다."
   },
   {
    "key": "lane",
@@ -4685,21 +4872,23 @@
   "demolish_building",
   "demolish_range",
   "effects_info",
+  "floor_slab_bridge",
   "floor_slab_fill",
   "issues_marks",
   "level_locked",
   "level_missions",
   "money_finance",
   "parking_flow",
+  "room_loft",
   "room_place",
   "start_place",
   "start_screen",
   "transport_extend"
  ],
  "counts": {
-  "rooms": 45,
+  "rooms": 49,
   "transports": 7,
-  "facilities_on_page": 52,
+  "facilities_on_page": 56,
   "trades": 16
  },
  "names_missing_in_strings": []
