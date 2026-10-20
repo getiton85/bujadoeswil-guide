@@ -1,6 +1,6 @@
 {
  "_info": "부자되실? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
- "version": "0.2.7",
+ "version": "0.2.8",
  "max_level": 3,
  "land_by_level": [
   20,
