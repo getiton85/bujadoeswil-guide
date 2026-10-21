@@ -1,6 +1,6 @@
 {
  "_info": "부자되실? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
- "version": "0.3.5",
+ "version": "0.3.6",
  "max_level": 3,
  "land_by_level": [
   20,
@@ -948,7 +948,7 @@
    "users": null,
    "none": "업종이 정해지기 전 빈 가게 칸 — 업종이 정해지면 그 업종의 효과(가게 업종 표)를 냅니다",
    "notes": [
-    "빈 가게 칸입니다. 업종(16가지)은 들어오는 세입자가 정하고, 큰 업종은 옆의 빈 가게 칸과 직사각형으로 묶여 들어옵니다."
+    "빈 가게 칸입니다. 업종(18가지)은 들어오는 세입자가 정하고, 큰 업종은 옆의 빈 가게 칸과 직사각형으로 묶여 들어옵니다."
    ],
    "in_strings": true
   },
@@ -3380,6 +3380,48 @@
     "condo": 1.6
    },
    "effects": "trade_kidscafe"
+  },
+  "broker": {
+   "name": "공인중개사",
+   "agency": true,
+   "category": "realty",
+   "cells": 1,
+   "floor": "K4",
+   "sign": "B2",
+   "icon": "house",
+   "rent_mult": 1.0,
+   "staff": [
+    1,
+    2
+   ],
+   "customer_mult": 0.3,
+   "visit_stay": [
+    15,
+    40
+   ],
+   "weight": 0.0,
+   "effects": "trade_broker"
+  },
+  "interior": {
+   "name": "인테리어업체",
+   "agency": true,
+   "category": "realty",
+   "cells": 1,
+   "floor": "K4",
+   "sign": "O2",
+   "icon": "brush",
+   "rent_mult": 1.0,
+   "staff": [
+    1,
+    2
+   ],
+   "customer_mult": 0.3,
+   "visit_stay": [
+    15,
+    40
+   ],
+   "weight": 0.0,
+   "effects": "trade_interior"
   }
  },
  "venues": {
@@ -4136,6 +4178,12 @@
      }
     }
    },
+   "trade_broker": {
+    "none": "부동산 업체(공인중개사) — 주변 이용자 효과 없음. 고용하면 realty 시스템이 영향 범위 안 빈 방 입주 확률을 올리고(체크표에 맞는 방은 더), 임대 1건마다 인센티브"
+   },
+   "trade_interior": {
+    "none": "부동산 업체(인테리어업체) — 주변 이용자 효과 없음. 고용하면 체크표대로 빈 층에 시설을 자동 배치"
+   },
    "recv_office": {
     "none": "일하는 곳 — 효과를 받는 쪽(사무실 직원)"
    },
@@ -4760,6 +4808,12 @@
    "scripts/grid3d/features/street.gd:distribute·room_factor·lobby_factor",
    "scripts/grid3d/features/weather.gd:on_day·street_mult·income_mult"
   ],
+  "realty": [
+   "data/guide.json chapters.realty",
+   "data/grid3d_rules.json systems.realty·lobby_floors",
+   "scripts/grid3d/features/realty.gd",
+   "scripts/grid3d/grid_world.gd:is_lobby_floor·check_lobby_floor·fill_all_plan"
+  ],
   "demolish": [
    "data/guide.json chapters.demolish",
    "scripts/grid3d/grid_world.gd:check_demolish",
@@ -4879,6 +4933,8 @@
   "level_missions",
   "money_finance",
   "parking_flow",
+  "realty_info",
+  "realty_plan",
   "room_loft",
   "room_place",
   "start_place",
@@ -4889,7 +4945,7 @@
   "rooms": 49,
   "transports": 7,
   "facilities_on_page": 56,
-  "trades": 16
+  "trades": 18
  },
  "names_missing_in_strings": []
 }
