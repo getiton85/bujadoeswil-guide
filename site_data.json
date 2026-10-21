@@ -1,6 +1,6 @@
 {
  "_info": "부자되실? 공략집 자료 (make_guide_site.py가 규칙표·코드 읽기로 만든 것). sources = 절마다 근거(파일:함수), unverified = 확인 못 해 페이지에서 뺀 것, diffs = 코드와 문서가 다른 곳",
- "version": "0.3.7",
+ "version": "0.3.8",
  "max_level": 3,
  "land_by_level": [
   20,
@@ -2035,7 +2035,87 @@
    "users": null,
    "none": "변전실 — 전력 공급을 늘리는 시설(편의 효과 없음)",
    "notes": [
-    "전력 공급 +150 (도시 전력망 기본 200에 더함)."
+    "전력 공급 +150 (도시 전력망 기본 200에 더함). 지하에만 지을 수 있습니다."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "power_plant_large",
+   "group": "room",
+   "name": "대형 발전소",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    3,
+    4
+   ],
+   "cells": 12,
+   "height": 1,
+   "cost": 15000,
+   "upkeep": 150.0,
+   "star": 5,
+   "unlock": "Lv.5 (지금 판 최고 레벨은 3 — 지을 수 없음)",
+   "unlock_kind": "locked",
+   "floors": "basement",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "power",
+   "effects_item": "power_plant_large",
+   "users": null,
+   "none": "대형 발전소 — 전력 공급을 늘리는 시설(편의 효과 없음)",
+   "notes": [
+    "전력 공급 +1500 (도시 전력망 기본 200에 더함). 지하에만 지을 수 있습니다.",
+    "하늘 구역(101~200층)이 열려야 지을 수 있습니다 (지금은 잠겨 있음)."
+   ],
+   "in_strings": true
+  },
+  {
+   "key": "power_plant_nuclear",
+   "group": "room",
+   "name": "소형 원자력 발전소",
+   "cat": "service",
+   "cat_name": "관리·위생",
+   "size": [
+    5,
+    5
+   ],
+   "cells": 25,
+   "height": 1,
+   "cost": 72000,
+   "upkeep": 720.0,
+   "star": 5,
+   "unlock": "Lv.5 (지금 판 최고 레벨은 3 — 지을 수 없음)",
+   "unlock_kind": "locked",
+   "floors": "basement",
+   "people": [
+    0,
+    0
+   ],
+   "role": "facility",
+   "rent_kind": "none",
+   "rent": [],
+   "daily_income": null,
+   "entrance": true,
+   "commercial": false,
+   "power": 0,
+   "wear": 0.8,
+   "feature": "power",
+   "effects_item": "power_plant_nuclear",
+   "users": null,
+   "none": "소형 원자력 발전소 — 전력 공급을 늘리는 시설(편의 효과 없음)",
+   "notes": [
+    "전력 공급 +6000 (도시 전력망 기본 200에 더함). 지하에만 지을 수 있습니다.",
+    "우주 구역(201~300층)이 열려야 지을 수 있습니다 (지금은 잠겨 있음)."
    ],
    "in_strings": true
   },
@@ -4499,6 +4579,12 @@
    "solar_panel": {
     "none": "태양광 패널 — 전기료만 줄임(편의 효과 없음)"
    },
+   "power_plant_large": {
+    "none": "대형 발전소 — 전력 설비(편의 효과 없음, 전력 기능은 전력 관리 시스템)"
+   },
+   "power_plant_nuclear": {
+    "none": "소형 원자력 발전소 — 전력 설비(편의 효과 없음, 전력 기능은 전력 관리 시스템)"
+   },
    "cathedral": {
     "name": "전망대",
     "users": {
@@ -4942,9 +5028,9 @@
   "transport_extend"
  ],
  "counts": {
-  "rooms": 49,
+  "rooms": 51,
   "transports": 7,
-  "facilities_on_page": 56,
+  "facilities_on_page": 58,
   "trades": 18
  },
  "names_missing_in_strings": []
